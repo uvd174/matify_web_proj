@@ -1,9 +1,8 @@
-const testString = [["+(1;*(B;C))", "+(1;*(B;C))"], ["+(2;+(2;*(4;5)))", "(24)"], ["^(4;^(4;^(4;^(4;4))))", "(45)"],
+const testString = [["+(1;*(B;C))", "+(1;*(B;C))"], ["+(2;+(2;*(4;5)))", "(24)"],
     ["+(4;*(8;9))", "(76)"], ["+(5;*(10;11))", "(115)"], ["+(6;*(12;126))", "(1518)"],
-    ["+(1;*(B;C))", "+(1;*(B;C))"], ["+(2;*(4;5))", "(22)"], ["+(3;*(6;7))", "(45)"],
-    ["+(4;*(8;9))", "(76)"], ["+(5;*(10;11))", "(115)"], ["+(6;*(12;126))", "(1518)"],
-    ["+(1;*(B;C))", "+(1;*(B;C))"], ["+(2;*(4;5))", "(22)"], ["+(3;*(6;7))", "(45)"],
-    ["+(4;*(8;9))", "(76)"], ["+(5;*(10;11))", "(115)"], ["+(6;*(12;126))", "(1518)"],];
+    ["+(^(15;2);-(^(5;2)))", "(200)"], ["/(8;8)", "(1)"]];
+
+
 MakeMainMenu(testString);
 
 //================================================================================
@@ -11,14 +10,12 @@ MakeMainMenu(testString);
 function MakeMainMenu(levelsList) {
     let app = new SVG().addTo('body').size(window.innerWidth, Math.max(100 * (levelsList.length), window.innerHeight));
     app.viewbox(0, 0, window.innerWidth, Math.max(100 * (levelsList.length), window.innerHeight));
-    app.rect(window.innerWidth, Math.max(100 * (levelsList.length), window.innerHeight)).fill('#333938');
+    app.rect(window.innerWidth, Math.max(100 * (levelsList.length), window.innerHeight)).fill(Colors.background);
     let cont = app.group();
 
     function cleanMainMenu() {
         app.remove();
     }
-
-    MakeLevelsButton(levelsList);
 
     function MakeLevelsButton(_levelsList) {
         let heightContOfConts = 0;
@@ -29,13 +26,15 @@ function MakeMainMenu(levelsList) {
 
             tmpCont.add(interactive_button(draw, _levelsList[i][0], _levelsList[i][1], 1));
             draw.rect(500, 80).radius(10)
-                .fill('#517d73').center(window.innerWidth / 2, 100 * i + 100 / 2);
+                .fill(Colors.background).center(window.innerWidth / 2, 100 * i + 100 / 2)
+                .stroke( {color: Colors.rich, opacity: 0, width: 5} );
             (PlainPrintTree(TWF_lib.structureStringToExpression(_levelsList[i][0]),
                 70, draw)).center(window.innerWidth / 2, 100 * i + 100 / 2);
         }
 
     }
 
+    MakeLevelsButton(levelsList);
 
     function interactive_button(cont, string = "", res, f = 0) {
         let tmp = cont;
@@ -52,7 +51,7 @@ function MakeMainMenu(levelsList) {
             cleanMainMenu();
             MakeMenuOfLevel(string, [string, res]);
         }
-        con.animate(300, '<>').fill('#ffbf00');
+        con.animate(300, '<>').fill(Colors.background);
         for (let item of con.children()) {
             onButtonDownButton(item);
         }
@@ -60,7 +59,7 @@ function MakeMainMenu(levelsList) {
 
     function onButtonOverButton(con) {
         if (con.type === "text") return;
-        con.animate(300, '<>').fill('#874141');
+        con.animate(300, '<>').stroke( {opacity: 1} );
         for (let item of con.children()) {
             onButtonOverButton(item);
         }
@@ -68,7 +67,7 @@ function MakeMainMenu(levelsList) {
 
     function onButtonOutButton(con) {
         if (con.type === "text") return;
-        con.animate(300, '<>').fill('#517d73');
+        con.animate(300, '<>').stroke( {opacity: 0} );
         for (let item of con.children()) {
             onButtonOutButton(item);
         }
@@ -89,16 +88,16 @@ function MakeMenuOfLevel(level, curLevel) {
 
     let app = new SVG().addTo('body').size(window.innerWidth, window.innerHeight);
     app.viewbox(0, 0, window.innerWidth, window.innerHeight);
-    app.rect(window.innerWidth, window.innerHeight).fill('#333938');
+    app.rect(window.innerWidth, window.innerHeight).fill(Colors.background);
 
 
     function initTimer(app, init_font_size) {
-        const timer_colour = '#CCCCCC';
+        const timer_colour = Colors.dark_t;
         let counter = 0;
 
         let txt = app.text("00:00").font({
             size: init_font_size,
-            family: 'u2000',
+            family: Fonts.main,
             fill: timer_colour,
             leading: 0.9
         });
@@ -128,13 +127,13 @@ function MakeMenuOfLevel(level, curLevel) {
 
     let stepCounterButtonRect = stepCounterButton.size(button_width, button_height)
         .rect(button_width, button_height)
-        .fill('#517d73').radius(10)
-        .move(100 + (30 + button_width), 30 + (window.innerHeight / 5 - 60) / 3);
+        .fill(Colors.background).radius(10)
+        .move(100 + (30 + button_width), 15);
 
     let stepCounterButtonText = stepCounterButton.text("0").font({
-        size: 60,
-        family: 'u2000',
-        fill: '#CCCCCC'
+        size: 50,
+        family: Fonts.main,
+        fill: Colors.dark_t
     }).center(stepCounterButtonRect.cx(), stepCounterButtonRect.cy());
 
     stepCounterButtonText.css('user-select', 'none');
@@ -143,12 +142,10 @@ function MakeMenuOfLevel(level, curLevel) {
     let expr = app.group();
     MakeExpression();
 
-    {
-        let tmp = PlainPrintTree(TWF_lib.structureStringToExpression(curLevel[1]), 70, app)
-            .center((window.innerWidth / 2), (window.innerHeight / 9 * 2));
-        for (let item of tmp.children()) {
-            item.css('cursor', 'default');
-        }
+    let goalExpr = PlainPrintTree(TWF_lib.structureStringToExpression(curLevel[1]), 60, app)
+              .center((window.innerWidth / 2), (window.innerHeight / 6 + 15));
+    for (let item of goalExpr.children()) {
+        item.css('cursor', 'default');
     }
 
     function MakeExpression() {
@@ -191,92 +188,115 @@ function MakeMenuOfLevel(level, curLevel) {
             szw = 100 / szw;
         } else szw = 100;
 
-        let szh = expr.bbox().height / (((window.innerHeight / 5 - 60) / 3 * 5) + 60);
+        let szh = expr.bbox().height / (window.innerHeight / 3);
         if (szh > 1) {
             szh = szw / szh;
             expr.remove()
             expr = PrintTree(NewTreeRoot, szh, app);
         }
-        expr.center((window.innerWidth) / 2, window.innerHeight / 5 * 2 + 30)
+
+        expr.cx(window.innerWidth / 2);
+        expr.cy(window.innerHeight / 2.4);
     }
 
     let cont = app.nested();
-    let height_cont = window.innerHeight / 5 * 2 - 60;
+    let height_cont = window.innerHeight / 2.7;
     let width_cont = window.innerWidth - 200;
-    let height_inner_cont = height_cont / 4;
-    let width_inner_cont = width_cont / 8 * 8;
+    let width_inner_cont = width_cont - 8;
     cont.size(width_cont, height_cont)
         .move(100, (window.innerHeight / 5 * 3))
         .rect(width_cont, height_cont)
-        .fill('#9e5252').radius(10);
-    let contOfCont = cont.group()
+        .fill(Colors.background).radius(10);
+    let contOfCont = cont.group();
 
 
     function MakeMenu(listOfValues, arrSubs) {
         cont.size(width_cont, height_cont)
             .move(100, (window.innerHeight / 5 * 3))
             .rect(width_cont, height_cont)
-            .fill('#9e5252').radius(10);
+            .fill(Colors.background).radius(10);
         contOfCont.remove();
-        contOfCont = cont.group()
+        contOfCont = cont.group();
 
 
-        let heighContOfConts = 0;
+        let heightContOfConts = 4;
         for (let i = 0; i < listOfValues.length; ++i) {
 
-            let tmpCont = contOfCont.group();
+            let innerCont = contOfCont.group();
 
-            let draw = tmpCont.group();
+            interactive_button_1(innerCont, false, i);
 
-            tmpCont.add(interactive_button_1(draw, false, i));
+            let leftSubstitutionPart = PlainPrintTree(TWF_lib.structureStringToExpression(listOfValues[i][0]), 50, innerCont).x(10);
+            let tmpWidth = innerCont.width() + 10;
 
+            let arrowRight = innerCont.group().text("\u27F6").font({
+                size: 50,
+                family: Fonts.main,
+                fill: Colors.dark_t
+            }).css("user-select", "none").x(tmpWidth);
+            tmpWidth = innerCont.width() + 10;
 
-            let curCont = draw.group();
+            let rightSubstitutionPart;
+            try {
+                rightSubstitutionPart = PlainPrintTree(TWF_lib.structureStringToExpression(listOfValues[i][1]), 50, innerCont).x(tmpWidth);
+            } catch (err) {
+                leftSubstitutionPart.remove();
+                arrowRight.remove();
+                console.log("Error occurred!");
+                continue;
+            }
 
-            let lolkek = (PlainPrintTree(TWF_lib.structureStringToExpression(listOfValues[i][0]), 70, curCont)).y(heighContOfConts);
+            tmpWidth = innerCont.width() + 40;
 
-            let tmpWidth = curCont.width();
+            if (tmpWidth > width_inner_cont) {
+                leftSubstitutionPart.remove();
+                arrowRight.remove();
+                rightSubstitutionPart.remove();
 
-            let arrowRight = curCont.group().text("\u27F6").font({
-                size: 70,
-                family: 'u2000',
-                fill: '#CCCCCC'
-            }).x(tmpWidth).y(height_inner_cont * i);
+                leftSubstitutionPart = PlainPrintTree(TWF_lib.structureStringToExpression(listOfValues[i][0]),
+                    50 / tmpWidth * width_inner_cont, innerCont).x(10);
 
-            tmpWidth = curCont.width();
+                arrowRight = innerCont.group().text("\u27F6").font({
+                    size: 50 / tmpWidth * width_inner_cont,
+                    family: Fonts.main,
+                    fill: Colors.dark_t
+                }).css("user-select", "none").x(leftSubstitutionPart.bbox().width + 10);
 
-            let abs = (PlainPrintTree(TWF_lib.structureStringToExpression(listOfValues[i][1]), 70, curCont)).x(tmpWidth).y(heighContOfConts);
+                rightSubstitutionPart = PlainPrintTree(TWF_lib.structureStringToExpression(listOfValues[i][1]),
+                    50 / tmpWidth * width_inner_cont, innerCont).x(leftSubstitutionPart.bbox().width + arrowRight.bbox().width + 10);
+            }
 
-            lolkek.center(lolkek.x() + lolkek.width() / 2, heighContOfConts + abs.height() / 2);
-            arrowRight.y(lolkek.y())
-            draw.rect(width_inner_cont, curCont.height()).radius(10)
-                .fill('#517d73').y(heighContOfConts);
+            let innerContRect = innerCont.rect(width_inner_cont, innerCont.height()).radius(10)
+                .dx(2)
+                .y(heightContOfConts)
+                .fill(Colors.background).stroke( {color: Colors.rich, width: 4, opacity: 0} )
+                .back();
 
+            leftSubstitutionPart.cy(innerContRect.cy());
+            arrowRight.cy(innerContRect.cy());
+            rightSubstitutionPart.cy(innerContRect.cy());
 
-            draw.add(curCont);
-
-
-            heighContOfConts += curCont.height();
+            heightContOfConts += innerCont.bbox().height + 4;
         }
 
         function moveScrollUp(con, tmp) {
             con.animate(300, '<>')
                 .dy(tmp * 2)
-            if (con.y() > contOfCont.y() - 500) {
-                con.animate(300, '<>').y(0);
+            if (con.y() > contOfCont.y() - height_cont) {
+                con.animate(300, '<>').y(2);
             }
         }
 
         function moveScrollDown(con, tmp) {
             con.animate(300, '<>')
                 .dy(tmp * 2);
-            if (con.y() < cont.y() + height_cont - heighContOfConts) {
-                con.animate(300, '<>').y(height_cont - heighContOfConts);
+            if (con.y() < cont.y() + height_cont - heightContOfConts) {
+                con.animate(300, '<>').y(height_cont - heightContOfConts);
             }
         }
 
         contOfCont.on('scroll', function (e) {
-            if (heighContOfConts < height_cont) return;
+            if (heightContOfConts < height_cont) return;
             let tmp = e.detail.some;
             if (tmp > 0) {
                 moveScrollUp(contOfCont, tmp);
@@ -298,7 +318,7 @@ function MakeMenuOfLevel(level, curLevel) {
 
         function onButtonDownButton1(con, f = false, index = -1) {
             if (con.width() === width_inner_cont)
-                con.animate(300, '<>').fill('#ffbf00');
+                con.animate(300, '<>').fill(Colors.background);
             for (let item of con.children()) {
                 onButtonDownButton1(item);
             }
@@ -315,16 +335,16 @@ function MakeMenuOfLevel(level, curLevel) {
 
 
         function onButtonOverButton1(con) {
-            if (con.width() === width_inner_cont)
-                con.animate(300, '<>').fill('#874141');
+            if (con.type === "text") return;
+            con.animate(300, '<>').stroke( { opacity: 1 } );
             for (let item of con.children()) {
                 onButtonOverButton1(item);
             }
         }
 
         function onButtonOutButton1(con) {
-            if (con.width() === width_inner_cont)
-                con.animate(300, '<>').fill('#517d73');
+            if (con.type === "text") return;
+            con.animate(300, '<>').stroke( {opacity: 0} );
             for (let item of con.children()) {
                 onButtonOutButton1(item);
             }
@@ -371,7 +391,7 @@ function MakeMenuOfLevel(level, curLevel) {
 
     function onButtonDownButton(con, f = 'false', index) {
         if (con.type === "text") return;
-        con.animate(300, '<>').fill('#ffbf00');
+        con.animate(300, '<>').fill(Colors.background);
         for (let item of con.children()) {
             onButtonDownButton(item);
         }
@@ -389,7 +409,7 @@ function MakeMenuOfLevel(level, curLevel) {
 
     function onButtonOverButton(con) {
         if (con.type === "text") return;
-        con.animate(300, '<>').fill('#874141');
+        con.animate(300, '<>').fill(Colors.background);
         for (let item of con.children()) {
             onButtonOverButton(item);
         }
@@ -397,7 +417,7 @@ function MakeMenuOfLevel(level, curLevel) {
 
     function onButtonOutButton(con) {
         if (con.type === "text") return;
-        con.animate(300, '<>').fill('#517d73');
+        con.animate(300, '<>').fill(Colors.background);
         for (let item of con.children()) {
             onButtonOutButton(item);
         }
@@ -416,43 +436,39 @@ function MakeMenuOfLevel(level, curLevel) {
 
             let timerButtonRect = timerButton.size(button_width, button_height)
                 .rect(button_width, button_height)
-                .fill('#517d73').radius(10)
-                .move(100 + 2 * (30 + button_width), 30 + (window.innerHeight / 5 - 60) / 3);
+                .fill(Colors.background).radius(10)
+                .move(100 + 2 * (30 + button_width), 15);
 
-            timerButton.add(initTimer(app, 100).font({
-                size: 60,
-                family: 'u2000',
-                fill: '#CCCCCC'
-            }).center(timerButtonRect.cx(), timerButtonRect.cy()));
+            timerButton.add(initTimer(app, 50).center(timerButtonRect.cx(), timerButtonRect.cy()));
             continue;
         }
         if (i === 3) {
             let resetButton = contOfButtons.group();
 
-            resetButton.size(button_width, button_height)
+            let resetButtonRect = resetButton.size(button_width, button_height)
                 .rect(button_width / 2 - 15, button_height)
-                .fill('#517d73').radius(10)
-                .move(100 + i * (30 + button_width), 30 + (window.innerHeight / 5 - 60) / 3);
+                .fill(Colors.background).radius(10)
+                .move(100 + i * (30 + button_width), 15);
 
             contOfButtons.add(interactive_button(resetButton, 'false', i));
 
             resetButton.group().text("\u27F2").font({
-                size: 60,
-                family: "u2000",
-                fill: "#D8FF00"
-            }).center(100 + i * (30 + button_width) + (button_width / 2 - 20) / 2, 30 + (window.innerHeight / 5 - 60) / 3 + button_height / 2);
+                size: 50,
+                family: Fonts.main,
+                fill: Colors.dark_t
+            }).center(resetButtonRect.cx(), resetButtonRect.cy());
 
             let undoButton = contOfButtons.group();
 
             let rectButt = undoButton.size(button_width, button_height)
                 .rect(button_width / 2 - 15, button_height)
-                .fill("#517D73").radius(10)
-                .move(100 + i * (30 + button_width) + (button_width / 2) + 15, 30 + (window.innerHeight / 5 - 60) / 3);
+                .fill(Colors.background).radius(10)
+                .move(100 + i * (30 + button_width) + (button_width / 2) + 15, 15);
 
             undoButton.group().text("\u27F5").font({
-                size: 70,
-                family: "u2000",
-                fill: "#D8FF00"
+                size: 60,
+                family: Fonts.main,
+                fill: Colors.dark_t
             }).center(rectButt.cx(), rectButt.cy());
 
             contOfButtons.add(interactive_button(undoButton, 'undo'));
@@ -460,18 +476,18 @@ function MakeMenuOfLevel(level, curLevel) {
         }
         let goBackButton = contOfButtons.group();
 
-        goBackButton.size(button_width, button_height)
+        let goBackButtonRect = goBackButton.size(button_width, button_height)
             .rect(button_width, button_height)
-            .fill('#517d73').radius(10)
-            .move(100 + i * (30 + button_width), 30 + (window.innerHeight / 5 - 60) / 3);
+            .fill(Colors.background).radius(10)
+            .move(100 + i * (30 + button_width), 15);
 
         contOfButtons.add(interactive_button(goBackButton, 'true'));
         if (i === 0) {
             goBackButton.group().text("Level Menu").font({
                 size: 40,
-                family: "u2000",
-                fill: "#D8FF00"
-            }).center(100 + i * (30 + button_width) + (button_width / 2), 30 + (window.innerHeight / 5 - 60) / 3 + (button_height / 2));
+                family: Fonts.main,
+                fill: Colors.dark_t
+            }).center(goBackButtonRect.cx(), goBackButtonRect.cy());
         }
 
     }
@@ -479,25 +495,33 @@ function MakeMenuOfLevel(level, curLevel) {
     let unmarkButton = contOfButtons.group();
     let unmarkButtonRect = unmarkButton.size(button_width, button_height)
         .rect(button_width, button_height)
-        .fill('#517D73').radius(10)
-        .move(100 + 4 * (30 + button_width), 30 + (window.innerHeight / 5 - 60) / 3);
+        .fill(Colors.background).radius(10)
+        .move(100 + 4 * (30 + button_width), 15);
     contOfButtons.add(interactive_button(unmarkButton, 'exit'));
+
+    contOfButtons.line(10, contOfButtons.y() + contOfButtons.bbox().height + 10,
+                                      window.innerWidth - 10, contOfButtons.y() + contOfButtons.bbox().height + 10)
+                                .stroke({ width: 3, color: Colors.dark_o });
+
     function spaceDown(event) {
         if (event.code === 'Space') {
             onButtonDownButton(unmarkButton, 'exit', -1);
         }
     }
+
     function spaceUp(event) {
         if (event.code === 'Space') {
             onButtonOutButton(unmarkButton);
         }
     }
+
+
     document.addEventListener('keydown', spaceDown);
     document.addEventListener('keyup', spaceUp);
     unmarkButton.group().text("Unmark").font({
         size: 40,
-        family: "u2000",
-        fill: "#D8FF00"
+        family: Fonts.main,
+        fill: Colors.dark_t
     }).center(unmarkButtonRect.cx(), unmarkButtonRect.cy());
 
     function clearMultipleMenu() {
@@ -563,21 +587,21 @@ function MakeMenuOfLevel(level, curLevel) {
         _cont.size(window.innerWidth, window.innerHeight)
             .move(0, 0)
             .rect(window.innerWidth, window.innerHeight)
-            .fill({color: '#1d55af', opacity: 0.6});
+            .fill({color: Colors.rich, opacity: 0.6}); //4e3232
 
         {
             let tmp = _cont.group();
 
             tmp.size(button_width, button_height)
                 .rect(500, 80)
-                .fill('#517d73').radius(10)
+                .fill(Colors.background).radius(10)
                 .center(window.innerWidth / 2, window.innerHeight / 2 - 60);
 
             _cont.add(interactive_button(tmp, 'true'));
             tmp.group().text("Level Menu").font({
                 size: 50,
-                family: 'u2000',
-                fill: '#CCCCCC'
+                family: Fonts.main,
+                fill: Colors.dark_t
             }).center(window.innerWidth / 2, window.innerHeight / 2 - 60);
         }
         {
@@ -585,14 +609,14 @@ function MakeMenuOfLevel(level, curLevel) {
 
             tmp.size(button_width, button_height)
                 .rect(500, 80)
-                .fill('#517d73').radius(10)
+                .fill(Colors.background).radius(10)
                 .center(window.innerWidth / 2, window.innerHeight / 2 + 60);
 
             _cont.add(interactive_button(tmp, 'level compl'));
             tmp.group().text("Play Again").font({
                 size: 50,
-                family: 'u2000',
-                fill: '#CCCCCC'
+                family: Fonts.main,
+                fill: Colors.dark_t
             }).center(window.innerWidth / 2, window.innerHeight / 2 + 60);
         }
 

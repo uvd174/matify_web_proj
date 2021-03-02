@@ -17,6 +17,9 @@ font_size - желаемый размер шрифта
 //const test_string = "^(A;^(/(/(/(C;D);D);D);B))";
 //initTestingGround(test_string, 100);
 
+const Colors = Object.freeze({"dark_t":'#3c413b', "dark_o":'#55635e', "rich":'#727e6c', "background":'#d4d6ca',
+                              "gradient_from":'#a93535', "gradient_to":'#26ab93'});
+const Fonts = Object.freeze({"main":'WebFont', "expr":'WebFont'});
 
 let compiledConfiguration;
 let level;
@@ -45,7 +48,7 @@ function init(_compiledConfiguration, _level, _MakeMenu, _flag) {
 }
 
 function initTestingGround(test_expr, font_size) {
-    const background_colour = "#1F1F1F";
+    const background_colour = Colors.background;
     const background_width = 800;
     const background_height = 800;
 
@@ -78,10 +81,10 @@ function MakeTree(node, app) {
     return cur_node;
 }
 
-const default_text_color = "#CCCCCC";
+const default_text_color = Colors.dark_t;
 
 function getColor(n) {
-    let color = new SVG.Color("#448fff").to("#ff0000");
+    let color = new SVG.Color(Colors.gradient_to).to(Colors.gradient_from);
     return color.at(2 / (n + 2)).toHex();
 }
 
@@ -149,7 +152,7 @@ function PrintTree(TWF_v, init_font_size, app) {
     function interactive_text(value, cont, size, nodeId = -1) {
         let txt = cont.text(value).font({
             size: font_size[min(size, max_size)],
-            family: "u2000",
+            family: Fonts.expr,
             fill: default_text_color
         });
         txt.css("cursor", "pointer");
@@ -186,7 +189,7 @@ function PrintTree(TWF_v, init_font_size, app) {
         b.y(a.y() + a.bbox().height + line.height());
         a.dx((line.width() - a.bbox().width) / 2);
         b.dx((line.width() - b.bbox().width) / 2);
-        return a.bbox().height + line.height() / 3; //recommended vertical shift
+        return a.bbox().height - line.height() * 1.5; //recommended vertical shift
         //to keep the fraction centered
     }
 
@@ -207,10 +210,15 @@ function PrintTree(TWF_v, init_font_size, app) {
 
     function draw_with_brackets(cont, child, delta, shift, size, nodeId) {
         let tmp = interactive_text("(", child, size, nodeId);
-        delta += draw(cont, tmp, delta) + interletter_interval;
-        delta += v_draw(cont, child, delta, shift, size) + interletter_interval;
+        delta += v_draw(cont, tmp, delta,
+            -default_vert_shift_offset[min(size, max_size)],
+            size) + interletter_interval;
+        delta += v_draw(cont, child, delta, shift,
+            size) + interletter_interval;
         tmp = interactive_text(")", child, size, nodeId);
-        delta += draw(cont, tmp, delta) + interletter_interval;
+        delta += v_draw(cont, tmp, delta,
+            -default_vert_shift_offset[min(size, max_size)],
+            size) + interletter_interval;
         return delta;
     }
 
@@ -297,7 +305,9 @@ function PrintTree(TWF_v, init_font_size, app) {
         } else if (v.value === "-") {
             let child, cur_shift, tmp;
             tmp = interactive_text("\u2212", cur_cont, size, v.twfNode.nodeId);
-            delta += draw(cur_cont, tmp, delta) + interletter_interval;
+            delta += v_draw(cur_cont, tmp, delta,
+                -default_vert_shift_offset[min(size, max_size)],
+                size) + interletter_interval;
             [child, cur_shift] = recPrintTree(v.children[0], size)
             vert_shift = min(cur_shift, vert_shift);
             if (v.children[0].value === "-" ||
@@ -324,7 +334,9 @@ function PrintTree(TWF_v, init_font_size, app) {
                 if (v.children[i].value !== "-") {
                     tmp = interactive_text(v.value, cur_cont,
                         size, v.twfNode.nodeId);
-                    delta += draw(cur_cont, tmp, delta) + interletter_interval;
+                    delta += v_draw(cur_cont, tmp, delta,
+                        -default_vert_shift_offset[min(size, max_size)],
+                        size) + interletter_interval;
                 }
                 [another_child, cur_shift] = recPrintTree(v.children[i], size);
                 vert_shift = min(cur_shift, vert_shift);
@@ -352,7 +364,7 @@ function PrintTree(TWF_v, init_font_size, app) {
             for (let i = 1; i < v.children.length; i++) {
                 tmp = interactive_text("\u2219", cur_cont,
                     size, v.twfNode.nodeId);
-                delta += draw(cur_cont, tmp, delta) + interletter_interval;
+                delta += v_draw(cur_cont, tmp, delta, -default_vert_shift_offset[min(size, max_size)], size) + interletter_interval;
                 [another_child, cur_shift] = recPrintTree(v.children[i], size);
                 vert_shift = min(cur_shift, vert_shift);
                 if (v.children[i].value === "*" || v.children[i].value === "+") {
