@@ -1,0 +1,27 @@
+{
+  "levels": [
+    {
+      "code": 1,
+      "nameEn": "Periodicity",
+      "nameRu": "Периодичность",
+      "descriptionRu": "Период косинуса равен 2π: сos(α + 2πn) = cos(α),\nПериод синуса равен 2π: sin(α + 2πn) = sin(α),\nПериод тангенса равен π: tg(α + πn) = tg(α),\nПериод котангенса равен π: ctg(α + πn) = ctg(α).",
+      "tasks": [
+        {
+          "taskCreationType": "manual",
+          "code": 1,
+          "descriptionRu": "Приведите тригонометрическую функцию произвольного угла к тригонометрической функции острого угла",
+          "originalExpressionStructureString": "+(2;2)",
+          "goalType": "CUSTOM",
+          "goalExpressionStructureString": "(4)"
+        }, {
+          "taskCreationType": "manual",
+          "code": 2,
+          "descriptionRu": "Приведите тригонометрическую функцию произвольного угла к тригонометрической функции острого угла",
+          "originalExpressionStructureString": "ctg(+(-(/(*(7;π);4))))",
+          "goalType": "CUSTOM",
+          "goalExpressionStructureString": "ctg(/(π;4))"
+        }
+      ]
+    }
+  ]
+}
