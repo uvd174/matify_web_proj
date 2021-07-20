@@ -1,0 +1,16 @@
+{
+  "Colors": {
+    "dark_t": "#3c413b",
+    "dark_o": "#55635e",
+    "rich": "#727e6c",
+    "background": "#d4d6ca",
+    "gradient_from": "#a93535",
+    "gradient_to": "#26ab93"
+  },
+  "text_color": "#3c413b",
+  "text_size": 100,
+  "Fonts": {
+    "main": "WebFont",
+    "expr": "WebFont"
+  }
+}
