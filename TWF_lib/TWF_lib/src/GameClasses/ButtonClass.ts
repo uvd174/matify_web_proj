@@ -1,5 +1,6 @@
 import * as SVG from '@svgdotjs/svg.js';
 import { Config } from '../Config/ConfigClass';
+import { pxToNumber } from '../utils/pxToNumber';
 
 class Button {
   svg: SVG.Container;
@@ -7,25 +8,29 @@ class Button {
   rect: SVG.Rect;
   text: SVG.Text;
 
-  constructor(cont: SVG.Container, width: number, height: number, font_size: number, text: string, config: Config) {
+  constructor(cont: SVG.Container, text: string, config: Config, className: string) {
     this.cont = cont;
     this.svg = cont.group();
-    this.rect = this.svg.rect(width, height).radius(10)
-      .fill(config.color_set.background)
-      .stroke( {color: config.color_set.rich, opacity: 0, width: 5} );
-    this.svg.css('cursor', 'pointer');
+    this.svg.addClass(className);
+    this.rect = this.svg.rect().radius(10)
+      .fill(config.userConfig.colorSet.lightBackground)
+      .stroke( {color: config.userConfig.colorSet.bright, opacity: 0, width: 5} );
+
     this.svg.on('mouseup mouseenter', () => onMouseEnter(this.svg));
     this.svg.on('mouseleave', () => onMouseLeave(this.svg));
+
     this.text = this.svg.text(text).font({
-      size: font_size,
-      family: config.font_set.expr,
-      fill: config.color_set.dark_t
-    }).center(this.rect.cx(), this.rect.cy());
-    // @ts-ignore
-    this.text.css('user-select', 'none');
+      family: config.userConfig.fontSet.expr,
+      fill: config.userConfig.colorSet.darkMain
+    });
+
+    let computedStyle = getComputedStyle(this.rect.node);
+
+    this.text.center(pxToNumber(computedStyle.width) / 2, pxToNumber(computedStyle.height) / 2);
     this.text.leading(0.9);
   }
 }
+
 
 function onMouseEnter(con: SVG.Element) {
   if (con.type === 'text') return;

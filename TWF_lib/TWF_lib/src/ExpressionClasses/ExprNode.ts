@@ -13,8 +13,8 @@ class ExprNode {
     this.twfNode = node;
     this.cont.addClass("uncolored");
   }
-  add(child_node: ExprNode): void {
-    this.children.push(child_node);
+  add(childNode: ExprNode): void {
+    this.children.push(childNode);
   }
 }
 

@@ -5,402 +5,374 @@ import * as SVG from '@svgdotjs/svg.js';
 // @ts-ignore
 import { TWF_lib } from '../libs/TWF_lib';
 import { Button } from '../GameClasses/ButtonClass';
-import { MainMenu } from './MainMenuClass';
 import { LearnSubmenu } from './LearnSubmenuClass';
 import { compiledConfiguration } from '../index';
+import { makeText } from "../utils/makeText";
+import { pxToNumber } from "../utils/pxToNumber";
 
 class Level {
   config: Config;
-  levels_json: any;
-  level_index: number;
-  task_index: number;
+  levelIndex: number;
+  taskIndex: number;
   svg: SVG.Container;
   expr: Expr;
   goal: Expr;
   timer: Timer;
-  step_counter: SVG.Text;
-  is_completed: boolean;
-  is_info_shown: boolean;
-  lefts_list: Array<any>;
-  rights_list: Array<any>;
-  state_stack: Array<string>;
-  subs_cont: SVG.Container;
-  subs_window: SVG.Container;
+  stepCounter: SVG.Text;
+  isCompleted: boolean;
+  isInfoShown: boolean;
+  leftsList: Array<any>;
+  rightsList: Array<any>;
+  stateStack: Array<string>;
+  subsCont: SVG.Container;
+  subsWindow: SVG.Container;
 
-  constructor(levels_json: any, level_index: number, task_index: number, config: Config, show_info: boolean) {
-    this.level_index = level_index;
-    this.task_index = task_index;
+  constructor(levelIndex: number, taskIndex: number, config: Config, showInfo: boolean) {
+    this.levelIndex = levelIndex;
+    this.taskIndex = taskIndex;
     this.config = config;
-    this.levels_json = levels_json;
-    this.is_info_shown = show_info;
+    this.isInfoShown = showInfo;
     this.svg = SVG.SVG().addTo('body').size(window.innerWidth,
       window.innerHeight);
-    this.svg.rect(window.innerWidth, window.innerHeight).fill(config.color_set.background);
+    this.svg.rect(window.innerWidth, window.innerHeight).fill(this.config.userConfig.colorSet.lightBackground);
 
-    let task = levels_json.levels[level_index].tasks[task_index];
+    let task = this.config.gameConfig.levelsJson.levels[levelIndex].tasks[taskIndex];
 
-    this.goal = new Expr(task.goalExpressionStructureString, this.svg, false, 100, config);
+    this.goal = new Expr(task.goalExpressionStructureString, this.svg, false, 100, this.config);
     this.goal.svg.remove();
-    this.expr = new Expr(task.originalExpressionStructureString, this.svg, true, 100, config);
-    PutExpr(this.expr, this.svg);
+    this.expr = new Expr(task.originalExpressionStructureString, this.svg, true, 100, this.config);
+    putExpr(this);
 
-    this.is_completed = false;
-    this.lefts_list = [];
-    this.rights_list = [];
+    this.isCompleted = false;
+    this.leftsList = [];
+    this.rightsList = [];
 
-    this.state_stack = [ task.originalExpressionStructureString ];
+    this.stateStack = [task.originalExpressionStructureString];
 
-    this.subs_window = this.svg.nested();
-    const subs_window_width = window.innerWidth - 200;
-    const subs_window_height = window.innerHeight / 2.7;
-    this.subs_window
-      .size(subs_window_width, subs_window_height)
+    this.subsWindow = this.svg.nested();
+    const subsWindowWidth = window.innerWidth - 200;
+    const subsWindowHeight = window.innerHeight / 2.7;
+    this.subsWindow
+      .size(subsWindowWidth, subsWindowHeight)
       .move(100, window.innerHeight / 5 * 3)
-      .rect(subs_window_width, subs_window_height)
-      .fill(config.color_set.background).radius(10);
+      .rect(subsWindowWidth, subsWindowHeight)
+      .fill(this.config.userConfig.colorSet.lightBackground).radius(10);
 
-    this.subs_cont = this.subs_window.group();
+    this.subsCont = this.subsWindow.group();
 
 //===============================top_interface_init============================
 
-    const top_interface_margin = 50;
+    const topInterfacePadding = 50;
 
-    let levels_menu_button = new Button(this.svg, 60, 60, 40, '🡸', config);
-    levels_menu_button.svg.center(50, top_interface_margin);
-    levels_menu_button.svg.on('mousedown', () => {
-      new LearnSubmenu(config, levels_json);
+    let levelsMenuButton = new Button(this.svg, '🡸', this.config, 'levelsMenuButton');
+    levelsMenuButton.svg.on('mousedown', () => {
+      new LearnSubmenu(this.config);
       this.clear();
     });
+    levelsMenuButton.svg.center(50, topInterfacePadding);
 
-    this.timer = new Timer(this.svg, 50, config);
-    this.timer.svg.center(window.innerWidth / 2, top_interface_margin);
+    this.timer = new Timer(this.svg, 50, this.config);
+    this.timer.svg.center(this.svg.cx(), topInterfacePadding);
 
-    let step_counter_indicator = this.svg.group();
-    this.step_counter = make_text(step_counter_indicator, '0', config)
-      .center(step_counter_indicator.cx(), step_counter_indicator.cy());
-    step_counter_indicator.center((levels_menu_button.svg.cx() + this.timer.svg.cx()) / 2,
-      top_interface_margin);
+    let stepCounterIndicator = this.svg.group();
+    this.stepCounter = makeText(stepCounterIndicator, '0', this.config, 'stepCounter')
+      .center(stepCounterIndicator.cx(), stepCounterIndicator.cy());
+    stepCounterIndicator.center((levelsMenuButton.svg.cx() + this.timer.svg.cx()) / 2,
+      topInterfacePadding);
 
-    const reset_button_width = 60;
-    const reset_button_height = 60;
-    let reset_button = new Button(this.svg, reset_button_width, reset_button_height, 50, '\u27F2', config);
-    reset_button.svg.on('mousedown', () => {
+    let resetButton = new Button(this.svg, '\u27F2', this.config, 'resetButton');
+    resetButton.svg.on('mousedown', () => {
+      new Level(levelIndex, taskIndex, this.config, false);
       this.clear();
-      new Level(levels_json, level_index, task_index, config, false);
     });
-    reset_button.svg.center(window.innerWidth * 3.5 / 5, top_interface_margin);
+    resetButton.svg.center(window.innerWidth * 3.5 / 5, topInterfacePadding);
 
-    const undo_button_width = 60;
-    const undo_button_height = 60;
-    let undo_button = new Button(this.svg, undo_button_width, undo_button_height, 45, '\u27F5', config);
-    undo_button.svg.on('mousedown', () => {
-      if (this.state_stack.length === 1) {
+    let undoButton = new Button(this.svg, '\u27F5', this.config, 'undoButton');
+    undoButton.svg.on('mousedown', () => {
+      if (this.stateStack.length === 1) {
         return;
       }
-      this.lefts_list = [];
-      this.rights_list = [];
-      this.state_stack.pop();
-      this.step_counter.text(`${this.state_stack.length - 1}`);
+      this.leftsList = [];
+      this.rightsList = [];
+      this.stateStack.pop();
+      this.stepCounter.text(`${this.stateStack.length - 1}`);
       // @ts-ignored
-      this.expr.string = this.state_stack[this.state_stack.length - 1];
-      this.expr.RebuildExpr();
-      this.expr.svg.on('click', this.rebuildSubsMenu.bind(this));
-      PutExpr(this.expr, this.svg);
+      this.expr.string = this.stateStack[this.stateStack.length - 1];
+      this.expr.rebuildExpr();
+      this.expr.svg.on('mousedown', this.rebuildSubsMenu.bind(this));
+      putExpr(this);
     });
+    undoButton.svg.center(window.innerWidth * 4 / 5, topInterfacePadding);
 
-    undo_button.svg.center(window.innerWidth * 4 / 5, top_interface_margin);
-
-    const unmark_button_width = 60;
-    const unmark_button_height = 60;
-    let unmark_button = new Button(this.svg, unmark_button_width, unmark_button_height, 45, '🧽', config);
-    unmark_button.svg.on('mousedown', () => {
-      this.expr.UnmarkExpr(); //TODO============================
-      this.lefts_list = [];
-      this.rights_list = [];
-      this.subs_cont.remove();
+    let unmarkButton = new Button(this.svg, '🧽', this.config, 'unmarkButton');
+    unmarkButton.svg.on('mousedown', () => {
+      this.expr.unmarkExpr();
+      this.leftsList = [];
+      this.rightsList = [];
+      this.subsCont.remove();
     });
-    unmark_button.svg.center(window.innerWidth * 4.5 / 5, top_interface_margin);
+    unmarkButton.svg.center(window.innerWidth * 4.5 / 5, topInterfacePadding);
 
     //document.addEventListener('keydown', spaceDown);
-    //document.addEventListener('keyup', spaceUp);
+    //document.addEventListener('keyup', spaceUp); //TODO======================
 
-    let pretty_line = this.svg.group();
-    pretty_line.line(10,
-      top_interface_margin * 2,
+    let prettyLine = this.svg.group();
+    prettyLine.line(10,
+      topInterfacePadding * 2,
       window.innerWidth - 10,
-      top_interface_margin * 2)
-      .stroke({ width: 3, color: config.color_set.dark_o });
+      topInterfacePadding * 2)
+      .stroke({ width: 3, color: this.config.userConfig.colorSet.darkAlternative });
 
 //===============================top_interface_init============================
 
-    let task_description = this.svg.group();
+    let taskDescription = this.svg.group();
 
     if (task.goalType === 'CUSTOM') {
-      make_text(task_description, task.descriptionRu, config).font({
-        size: 20
-      });
-      task_description.cx(this.svg.cx()).y(Number(pretty_line.y()) + 25);
+      makeText(taskDescription, task.descriptionRu, this.config, 'taskDescription');
+      taskDescription.cx(this.svg.cx()).y(Number(prettyLine.y()) + 25);
     } else if (task.goalType === 'EXPR') {
-      let task_description = new Expr(task.goalExpressionStructureString, this.svg, false, 100, config);
-      task_description.svg.cx(this.svg.cx()).y(Number(pretty_line.y()) + 25);
+      let taskDescription = new Expr(task.goalExpressionStructureString, this.svg, false, 100, this.config);
+      taskDescription.svg.cx(this.svg.cx()).y(Number(prettyLine.y()) + 25); //TODO=====================
     }
 
-    if (show_info) {
+    if (showInfo) {
       this.timer.stop();
       let shade = this.svg.group();
-      shade.rect(Number(this.svg.width()), Number(this.svg.height())).fill({
-        color: '#000',
-        opacity: 0.5
-      });
+      shade.rect().addClass('shade');
+      shade.on('mousedown', () => removeInfo(this));
 
       let info = this.svg.group();
-      let info_title = info.group();
-      make_text(info_title, levels_json.levels[level_index].nameRu, config)
-        .font({
-          size: 30
-        });
+      let infoTitle = info.group();
+      makeText(infoTitle, this.config.gameConfig.levelsJson.levels[levelIndex].nameRu,
+        this.config, 'infoTitleText');
 
-      let description = make_text(info, levels_json.levels[level_index].descriptionRu, config)
+      let levelDescription = makeText(info, this.config.gameConfig.levelsJson.levels[levelIndex].descriptionRu,
+        this.config, 'levelDescription')
         .font({
           leading: 1.5,
-          size: 20
         });
 
-      const info_width = description.bbox().width + 60;
-      const info_height = window.innerHeight * 2 / 3;
-      info
-        .rect(info_width, info_height)
+      let infoBox = info
+        .rect()
+        .addClass('infoBox')
         .radius(10)
-        .fill(config.color_set.background)
-        .stroke({ color: config.color_set.rich, width: 5 })
-        .after(description).after(info_title);
+        .fill(this.config.userConfig.colorSet.lightBackground)
+        .stroke(this.config.userConfig.colorSet.bright)
+        .after(levelDescription).after(infoTitle);
+      let infoCalculatedStyle = getComputedStyle(infoBox.node);
 
-      info_title.cx(info.cx()).dy(20);
-      description.cx(info.cx()).dy(150);
+      infoTitle.cx(info.cx()).dy(20);
+      levelDescription.cx(info.cx()).dy(150);
 
-      const check_button_width = 100;
-      const check_button_height = 60;
-      let check_button = new Button(info, check_button_width, check_button_height, 45, '✓', config);
-      check_button.svg.cx(info.cx()).dy(info_height * 3 / 4);
+      let checkButton = new Button(info, '✓', this.config, 'checkButton');
+      checkButton.svg.cx(info.cx()).dy(pxToNumber(infoCalculatedStyle.height) * 3 / 4); // Seems to work
 
       info.cx(this.svg.cx()).dy(30);
 
-      shade.on('mousedown', () => remove_info(this));
-      check_button.svg.on('mousedown', () => remove_info(this));
 
-      function remove_info(level: Level){
+      checkButton.svg.on('mousedown', () => removeInfo(this));
+
+      function removeInfo(level: Level){
         level.timer.start();
         shade.remove();
         info.remove();
       }
     }
 
-    this.expr.svg.on('click', this.rebuildSubsMenu.bind(this));
-    this.subs_window.on('click', this.rebuildLevel.bind(this));
+    this.expr.svg.on('mousedown', this.rebuildSubsMenu.bind(this));
+    this.subsWindow.on('mousedown', this.rebuildLevel.bind(this));
   }
 
   clear() {
     this.svg.remove();
-    if (this.timer.is_active) {
+    if (this.timer.isActive) {
       clearInterval(this.timer.intervalId);
     }
   }
 
   rebuildLevel() {
-    this.expr.RebuildExpr();
-    this.expr.svg.on('click', this.rebuildSubsMenu.bind(this));
-    this.lefts_list = [];
-    this.rights_list = [];
-    this.state_stack.push(this.expr.string);
-    this.step_counter.text(`${this.state_stack.length - 1}`);
+    console.log('lev');
+    this.expr.rebuildExpr();
+    this.expr.svg.on('mousedown', this.rebuildSubsMenu.bind(this));
+    this.leftsList = [];
+    this.rightsList = [];
+    this.stateStack.push(this.expr.string);
+    this.stepCounter.text(`${this.stateStack.length - 1}`);
     this.rebuildSubsMenu();
-    PutExpr(this.expr, this.svg);
+    putExpr(this);
     if (this.expr.string === this.goal.string) {
-      this.MakeWinMenu();
+      this.makeWinMenu();
     }
   }
 
-  MakeWinMenu() {
-    let win_shade = this.svg.group();
-    win_shade.rect(Number(this.svg.width()), Number(this.svg.height())).fill({
-      color: this.config.color_set.rich,
+  makeWinMenu() {
+    let winShade = this.svg.group();
+    winShade.rect(Number(this.svg.width()), Number(this.svg.height())).fill({
+      color: this.config.userConfig.colorSet.bright,
       opacity: 0.6
     });
 
     clearInterval(this.timer.intervalId);
 
-    let win_box = this.svg.group();
-    win_box
+    let winBox = this.svg.group();
+    winBox
       .rect(450, window.innerHeight / 3)
-      .fill(this.config.color_set.background)
+      .fill(this.config.userConfig.colorSet.lightBackground)
       .radius(10);
 
-    let win_title = win_box.group();
-    make_text(win_title, 'Level completed!', this.config).center(win_title.cx(),
-      win_title.cy());
-    win_title.center(win_box.cx(), Number(win_box.height()) / 3);
+    let winTitle = winBox.group();
+    makeText(winTitle, 'Level completed!', this.config, 'winTitleText')
+      .center(winTitle.cx(), winTitle.cy());
+    winTitle.center(winBox.cx(), Number(winBox.height()) / 3);
 
-    const bottom_offset = Number(win_box.height()) - 50;
+    const bottomOffset = Number(winBox.height()) - 50;
 
-    if (this.task_index !== this.levels_json.levels.length) {
+    if (this.taskIndex !== this.config.gameConfig.levelsJson.levels.length) {
 
-      const next_button_width = 100;
-      const next_botton_height = 80;
-      let next_button = new Button(win_box, next_button_width, next_botton_height, 70, '➔', this.config);
+      let nextButton = new Button(winBox, '➔', this.config, 'winNextButton');
 
-      next_button.svg
-        .cx(win_box.cx())
-        .cy(bottom_offset)
+      nextButton.svg
+        .cx(winBox.cx())
+        .cy(bottomOffset)
         .on('mousedown', () => {
-          new Level(this.levels_json, this.level_index, this.task_index + 1, this.config, false);
+          new Level(this.levelIndex, this.taskIndex + 1, this.config, false);
           this.clear();
-        })
+        });
     }
 
-    let reset_button = new Button(win_box, 60, 60, 50, '\u27F2', this.config);
-    reset_button.svg.cx(win_box.cx() + 100).cy(bottom_offset);
-    reset_button.svg.on('mousedown', () => {
-      new Level(this.levels_json, this.level_index, this.task_index, this.config, false);
+    let winResetButton = new Button(winBox, '\u27F2', this.config, 'winResetButton');
+    winResetButton.svg.cx(winBox.cx() + 100).cy(bottomOffset);
+    winResetButton.svg.on('mousedown', () => {
+      new Level(this.levelIndex, this.taskIndex, this.config, false);
       this.clear();
-    })
+    });
 
-    let learn_submenu_button = new Button(win_box, 60, 60, 40, '🡸', this.config);
-    learn_submenu_button.svg.cx(win_box.cx() - 100)
-      .cy(bottom_offset)
+    let winLearnSubmenuButton = new Button(winBox, '🡸', this.config, 'winLearnSubmenuButton');
+    winLearnSubmenuButton.svg.cx(winBox.cx() - 100).cy(bottomOffset)
       .on('mousedown', () => {
-        new LearnSubmenu(this.config, this.levels_json)
+        new LearnSubmenu(this.config)
         this.clear();
-      })
+      });
 
-    win_box.center(this.svg.cx(), window.innerHeight / 2 - 60)
-  }
+    winBox.center(this.svg.cx(), window.innerHeight / 2 - 60);
+  };
 
   rebuildSubsMenu() {
-    this.rights_list = [];
-    if (this.expr.multi_id_list.length !== 0) {
-      this.rights_list = (TWF_lib.findApplicableSubstitutionsInSelectedPlace(
+    console.log('subs');
+    this.rightsList = [];
+    if (this.expr.multiIdList.length !== 0) {
+      this.rightsList = (TWF_lib.findApplicableSubstitutionsInSelectedPlace(
         TWF_lib.structureStringToExpression(this.expr.string),
-        this.expr.multi_id_list,
+        this.expr.multiIdList,
         compiledConfiguration)).toArray();
     }
-    this.lefts_list = [];
-    for (let i = 0; i < this.rights_list.length; i++) {
-      if (this.rights_list[i].resultExpression.toString() === "To get application result use argument 'withReadyApplicationResult' = 'true'()") continue;
-      this.lefts_list.push([this.rights_list[i].originalExpressionChangingPart.toString(),
-        this.rights_list[i].resultExpressionChangingPart.toString()])
+    this.leftsList = [];
+    for (let i = 0; i < this.rightsList.length; i++) {
+      if (this.rightsList[i].resultExpression.toString() === "To get application result use argument 'withReadyApplicationResult' = 'true'()") continue;
+      this.leftsList.push([this.rightsList[i].originalExpressionChangingPart.toString(),
+        this.rightsList[i].resultExpressionChangingPart.toString()])
     }
-    this.subs_cont.remove();
-    this.subs_cont = MakeSubsMenu(this.subs_window, this.lefts_list, this.rights_list, this.config, this.expr);
-  }
+    this.subsCont.remove();
+    this.subsCont = makeSubsMenu(this.subsWindow, this.leftsList, this.rightsList, this.expr);
+  };
 }
 
-function make_text(cont: SVG.Container, text: string, config: Config) {
-  let txt = cont.text(text).font({
-    size: 50,
-    family: config.font_set.expr,
-    fill: config.color_set.dark_t
-  });
-  // @ts-ignore
-  txt.css('user-select', 'none');
-  txt.leading(0.9);
-  return txt;
-}
+function putExpr(level: Level) {
+  const widthLimit = window.innerWidth - 200;
+  const heightLimit = window.innerHeight / 3;
+  level.expr.fontSize = 100;
 
+  let currentWidthRatio = level.expr.svg.bbox().width / widthLimit;
+  let currentHeightRatio = level.expr.svg.bbox().height / heightLimit
 
-function PutExpr(expr: Expr, app: SVG.Container) {
-  const width_limit = window.innerWidth - 200;
-  const height_limit = window.innerHeight / 3;
-
-  let current_width_ratio = expr.svg.bbox().width / width_limit;
-  let current_height_ratio = expr.svg.bbox().height / height_limit
-
-  if (current_width_ratio > 1 || current_height_ratio > 1) {
-    expr.font_size = 100 / Math.max(current_width_ratio, current_height_ratio);
-    expr.RebuildExpr();
+  if (currentWidthRatio > 1 || currentHeightRatio > 1) {
+    level.expr.fontSize = 100 / Math.max(currentWidthRatio, currentHeightRatio);
+    level.expr.rebuildExpr();
+    level.expr.svg.on('mousedown', level.rebuildSubsMenu.bind(level));
   }
 
-  expr.svg.cx(app.cx());
-  expr.svg.cy(window.innerHeight / 2.4);
+  level.expr.svg.cx(level.svg.cx());
+  level.expr.svg.cy(window.innerHeight / 2.4);
 }
 
-function MakeSubsMenu(window: SVG.Container, list_of_lefts: Array<string>,
-  list_of_rights: Array<string>, config: Config, expr: Expr) {
-  if (list_of_lefts.length !== list_of_rights.length) {
+function makeSubsMenu(window: SVG.Container, listOfLefts: Array<string>,
+  listOfRights: Array<string>, expr: Expr) {
+  if (listOfLefts.length !== listOfRights.length) {
     console.log('left-rights error!');
   }
 
-  let subs_menu = window.group();
-  let subs_menu_height = 4;
-  for (let i = 0; i < list_of_lefts.length; ++i) {
+  let subsMenu = window.group();
+  let subsMenuHeight = 4;
+  for (let i = 0; i < listOfLefts.length; ++i) {
 
-    let inner_cont = subs_menu.group();
-    const inner_cont_width = Number(window.width()) - 8;
-    const inner_cont_default_height = 65;
+    let innerCont = subsMenu.group();
+    const innerContWidth = Number(window.width()) - 8;
+    const innerContDefaultHeight = 65;
 
-    let left_sub = new Expr(list_of_lefts[i][0], inner_cont, false, 50, config)
+    let leftSub = new Expr(listOfLefts[i][0], innerCont, false, 50, expr.config)
       .svg.x(10);
 
-    let horizontal_offset = Number(inner_cont.width()) + 10;
+    let horizontalOffset = Number(innerCont.width()) + 10;
 
-    let right_arrow_box = inner_cont.group();
-    let right_arrow = make_text(right_arrow_box, '\u27F6', config)
-      .x(horizontal_offset);
+    let rightArrowBox = innerCont.group();
+    let rightArrow = makeText(rightArrowBox, '\u27F6', expr.config, 'rightArrow')
+      .x(horizontalOffset);
 
-    horizontal_offset = Number(inner_cont.width()) + 10;
+    horizontalOffset = Number(innerCont.width()) + 10;
 
-    let right_sub;
+    let rightSub;
     try {
-      right_sub = new Expr(list_of_lefts[i][1], inner_cont, false, 50, config)
-        .svg.x(horizontal_offset);
+      rightSub = new Expr(listOfLefts[i][1], innerCont, false, 50, expr.config)
+        .svg.x(horizontalOffset);
     } catch (error) {
-      left_sub.remove();
-      right_arrow.remove();
+      leftSub.remove();
+      rightArrow.remove();
       console.log("Error occurred!");
       continue;
     }
 
-    horizontal_offset = Number(inner_cont.width()) + 40;
+    horizontalOffset = Number(innerCont.width()) + 40;
 
-    if (horizontal_offset > inner_cont_width ||
-      inner_cont.height() > inner_cont_default_height * 2) {
-      let max_ratio = Math.max(inner_cont_width / horizontal_offset,
-        Number(inner_cont.height()) / (inner_cont_default_height * 2));
+    if (horizontalOffset > innerContWidth ||
+      innerCont.height() > innerContDefaultHeight * 2) {
+      let maxRatio = Math.max(innerContWidth / horizontalOffset,
+        Number(innerCont.height()) / (innerContDefaultHeight * 2));
 
-      left_sub.remove();
-      right_arrow.remove();
-      right_sub.remove();
+      leftSub.remove();
+      rightArrow.remove();
+      rightSub.remove();
 
-      left_sub = new Expr(list_of_lefts[i][0], inner_cont, false, 50 / max_ratio, config).svg.x(10);
+      leftSub = new Expr(listOfLefts[i][0], innerCont, false, 50 / maxRatio, expr.config).svg.x(10);
 
-      right_arrow = make_text(right_arrow_box, '\u27F6', config)
-        .font({ size: 50 / max_ratio })
-        .x(left_sub.bbox().width + 10);
+      rightArrow = makeText(rightArrowBox, '\u27F6', expr.config, 'rightArrow')
+        .font({ size: 50 / maxRatio })
+        .x(leftSub.bbox().width + 10);
 
-      right_sub = new Expr(list_of_lefts[i][1], inner_cont, false, 50 / max_ratio, config)
-        .svg.x(left_sub.bbox().width + right_arrow.bbox().width + 10);
+      rightSub = new Expr(listOfLefts[i][1], innerCont, false, 50 / maxRatio, expr.config)
+        .svg.x(leftSub.bbox().width + rightArrow.bbox().width + 10);
     }
 
-    new Button(inner_cont, inner_cont_width, Number(inner_cont.height()), 0, '', config).svg
+    new Button(innerCont, '', expr.config, 'subButton').svg
       .stroke({ width: 4 })
       .back();
 
-    inner_cont.on('mousedown', () => {
+    innerCont.on('mousedown', () => {
       // @ts-ignore
-      expr.string = list_of_rights[i].resultExpression.toString();
+      expr.string = listOfRights[i].resultExpression.toString();
     });
 
-    left_sub.cy(inner_cont.cy());
-    right_arrow.cy(inner_cont.cy());
-    right_sub.cy(inner_cont.cy());
+    leftSub.cy(innerCont.cy());
+    rightArrow.cy(innerCont.cy());
+    rightSub.cy(innerCont.cy());
 
-    inner_cont.dx(2).y(subs_menu_height);
+    innerCont.dx(2).y(subsMenuHeight);
 
-    subs_menu_height += Number(inner_cont.height()) + 4;
+    subsMenuHeight += Number(innerCont.height()) + 4;
   }
 
-  subs_menu.dy(2);
+  subsMenu.dy(2);
 
-  return subs_menu;
+  return subsMenu;
 }
 
 export { Level };

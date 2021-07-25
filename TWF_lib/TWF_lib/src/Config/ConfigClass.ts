@@ -1,19 +1,14 @@
-import { Colors, IColors } from './ColorClass'
-import { Fonts, IFonts } from './FontClass'
-
-interface IConfig {
-  color_set: Colors;
-  font_set: Fonts;
-}
+import { GameConfig } from './GameConfigClass';
+import { UserConfig } from './UserConfigClass';
 
 class Config {
-  color_set: Colors;
-  font_set: Fonts;
+  gameConfig: GameConfig;
+  userConfig: UserConfig;
 
-  constructor(colors?: IColors, fonts?: IFonts) {
-    this.color_set = colors && new Colors(colors) || new Colors();
-    this.font_set = fonts && new Fonts(fonts) || new Fonts();
+  constructor(gameConfig?: GameConfig, userConfig?: UserConfig) {
+    this.gameConfig = gameConfig && new GameConfig(gameConfig) || new GameConfig();
+    this.userConfig = userConfig && userConfig || new UserConfig();
   }
 }
 
-export { Config, IConfig };
+export { Config };

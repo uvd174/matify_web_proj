@@ -1,42 +1,26 @@
 import * as SVG from '@svgdotjs/svg.js';
-import { IConfig } from '../Config/ConfigClass'
+import { Config } from '../Config/ConfigClass'
 
-
-interface ITimer {
-  color: string;
-  font: string;
-  font_size: number;
-  counter: number;
-  cont: SVG.Container;
-  svg: SVG.Text;
-  intervalId: NodeJS.Timer;
-  is_active: boolean;
-
-  update(): void;
-  start(): void;
-  stop(): void;
-  reset(): void;
-}
 
 class Timer {
   color: string;
   font: string;
-  font_size: number;
+  fontSize: number;
   counter: number;
   cont: SVG.Container;
   svg: SVG.Text;
   intervalId: NodeJS.Timer;
-  is_active: boolean;
+  isActive: boolean;
 
-  constructor(cont: SVG.Container, font_size: number, config: IConfig) {
-    this.color = config.color_set.dark_t;
-    this.font = config.font_set.main;
-    this.font_size = font_size;
+  constructor(cont: SVG.Container, fontSize: number, config: Config) {
+    this.color = config.userConfig.colorSet.darkMain;
+    this.font = config.userConfig.fontSet.main;
+    this.fontSize = fontSize;
     this.counter = 0;
     this.cont = cont;
-    this.is_active = true;
+    this.isActive = true;
     this.svg = cont.text('00:00').font({
-      size: this.font_size,
+      size: this.fontSize,
       family: this.font,
       fill: this.color,
       leading: 0.9
@@ -50,22 +34,22 @@ class Timer {
 
   update(): void {
     this.counter++;
-    let time_passed = new Date(1000 * this.counter);
+    let timePassed = new Date(1000 * this.counter);
 
-    this.svg.text(`${Math.floor(time_passed.getMinutes() / 10)}` +
-      `${time_passed.getMinutes() % 10}:` +
-      `${Math.floor(time_passed.getSeconds() / 10)}` +
-      `${time_passed.getSeconds() % 10}`);
+    this.svg.text(`${Math.floor(timePassed.getMinutes() / 10)}` +
+      `${timePassed.getMinutes() % 10}:` +
+      `${Math.floor(timePassed.getSeconds() / 10)}` +
+      `${timePassed.getSeconds() % 10}`);
   }
 
   start(): void {
-    this.is_active = true;
+    this.isActive = true;
     this.intervalId = setInterval(this.update.bind(this), 1000);
   }
 
   stop(): void {
     if (this.intervalId) {
-      this.is_active = false;
+      this.isActive = false;
       clearInterval(this.intervalId);
     }
   }
@@ -74,11 +58,11 @@ class Timer {
     if (this.intervalId) {
       clearInterval(this.intervalId);
     }
-    this.is_active = true;
+    this.isActive = true;
     this.counter = -1;
     this.update();
     this.intervalId = setInterval(this.update, 1000);
   }
 }
 
-export { Timer, ITimer };
+export { Timer };

@@ -1,9 +1,10 @@
-import './css/index.css'
-import learn_levels from './learn_levels.json';
+import './sass/index.sass';
 import { Config } from './Config/ConfigClass';
 import { MainMenu } from './SceneClasses/MainMenuClass';
 // @ts-ignore
 import { TWF_lib } from './libs/TWF_lib';
+import * as SVG from '@svgdotjs/svg.js';
+import { Expr } from "./ExpressionClasses/Expr";
 
 var compiledConfiguration = TWF_lib.createCompiledConfigurationFromExpressionSubstitutionsAndParams([
   TWF_lib.expressionSubstitutionFromStructureStrings(void 0, void 0, void 0, void 0, void 0, void 0, void 0, "NumberPlusMinus1",                    void 0, void 0),
@@ -23,6 +24,14 @@ var compiledConfiguration = TWF_lib.createCompiledConfigurationFromExpressionSub
 ]);
 
 let config = new Config();
-let main_menu = new MainMenu(config);
+new MainMenu(config);
+
+/*
+let app = SVG.SVG().addTo('body').size(window.innerWidth, window.innerHeight);
+let rect = app.rect(window.innerWidth, window.innerHeight).fill(config.userConfig.colorSet.lightBackground);
+let testString = '/(+(2;2;2;2);^(+(2;2;2;2;2);/(+(2;2;^(2;/(2;2));2;2);^(+(2;2;2;2;2);/(+(2;2;2;2;2);^(2;2))))))';
+let expr = new Expr(testString, app, true, 100, config);
+expr.svg.center(rect.cx(), rect.cy());
+*/
 
 export { compiledConfiguration };

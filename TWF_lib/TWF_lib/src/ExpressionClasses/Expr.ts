@@ -1,69 +1,57 @@
 import * as SVG from '@svgdotjs/svg.js'
 import { ExprNode } from './ExprNode'
 import { ExprTree } from './ExprTree'
-import { PrintExpr, PlainPrintExpr, changeColor } from '../PrintExpr/PrintExpr'
+import { printExpr, plainPrintExpr, changeColor } from '../PrintExpr/PrintExpr'
 import { Config } from '../Config/ConfigClass';
 
-interface IExpr {
-  string: string;
-  cont: SVG.Container;
-  tree: ExprTree;
-  is_interactive: boolean;
-  svg: SVG.Container;
-  multi_id_list: Array<number>;
-  multi_cont_list: Array<SVG.Element>;
-
-  UnmarkExpr(): void;
-}
 
 class Expr {
   string: string;
   config: Config;
-  font_size: number;
+  fontSize: number;
   cont: SVG.Container;
   tree: ExprTree;
-  is_interactive: boolean;
+  isInteractive: boolean;
   svg: SVG.Container;
-  multi_id_list: Array<number>;
-  multi_cont_list: Array<SVG.Element>;
+  multiIdList: Array<number>;
+  multiContList: Array<SVG.Element>;
 
-  constructor(string: string, app: SVG.Container, is_interactive: boolean, font_size: number, config: Config) {
+  constructor(string: string, app: SVG.Container, isInteractive: boolean, fontSize: number, config: Config) {
     this.string = string;
     this.config = config;
     this.cont = app.group();
-    this.font_size = font_size;
+    this.fontSize = fontSize;
     this.tree = new ExprTree(string, app.group());
-    this.is_interactive = is_interactive;
-    this.multi_id_list = [];
-    this.multi_cont_list = [];
-    if (is_interactive) {
-      this.svg = PrintExpr(this, font_size, config);
+    this.isInteractive = isInteractive;
+    this.multiIdList = [];
+    this.multiContList = [];
+    if (this.isInteractive) {
+      this.svg = printExpr(this);
     } else {
-      this.svg = PlainPrintExpr(this, font_size, config);
+      this.svg = plainPrintExpr(this);
     }
   }
 
-  UnmarkExpr(): void {
-    for (let i = 0; i < this.multi_cont_list.length; ++i) {
-      changeColor(this.multi_cont_list[i], this.multi_cont_list[i].classes()[0],
-        'uncolored', this.config.color_set.dark_t);
+  unmarkExpr(): void {
+    for (let i = 0; i < this.multiContList.length; ++i) {
+      changeColor(this.multiContList[i], this.multiContList[i].classes()[0],
+        'uncolored', this.config.userConfig.colorSet.darkMain);
     }
-    this.multi_id_list = [];
-    this.multi_cont_list = [];
+    this.multiIdList = [];
+    this.multiContList = [];
   }
 
-  RebuildExpr(): void {
+  rebuildExpr(): void {
     this.svg.remove();
-    this.multi_id_list = [];
-    this.multi_cont_list = [];
+    this.multiIdList = [];
+    this.multiContList = [];
     this.tree = new ExprTree(this.string, this.cont);
-    if (this.is_interactive) {
-      this.svg = PrintExpr(this, this.font_size, this.config);
+    if (this.isInteractive) {
+      this.svg = printExpr(this);
     } else {
-      this.svg = PlainPrintExpr(this, this.font_size, this.config);
+      this.svg = plainPrintExpr(this);
     }
-
   }
 }
 
-export { Expr, IExpr };
+export { Expr };

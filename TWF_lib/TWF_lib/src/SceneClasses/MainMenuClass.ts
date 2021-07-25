@@ -1,7 +1,6 @@
 import { Config } from '../Config/ConfigClass';
 import * as SVG from '@svgdotjs/svg.js';
 import { Button } from '../GameClasses/ButtonClass';
-import learn_levels from '../learn_levels.json';
 import { LearnSubmenu } from './LearnSubmenuClass';
 
 class MainMenu {
@@ -10,46 +9,38 @@ class MainMenu {
 
   constructor(config: Config) {
     this.config = config;
-    this.svg = SVG.SVG().addTo('body').size(window.innerWidth,
-      window.innerHeight);
-    this.svg.rect(window.innerWidth, window.innerHeight).fill(config.color_set.background);
+    this.svg = SVG.SVG().addTo('body').size(window.innerWidth, window.innerHeight);
+    this.svg.rect(window.innerWidth, window.innerHeight).fill(config.userConfig.colorSet.lightBackground);
 
     let title = this.svg.group();
-    let title_text = title.text('TriGo')
-    title_text
-      .font({
-        size: 100,
-        weight: 'bold',
-        family: config.font_set.expr,
-        fill: config.color_set.dark_t
+    let mainTitleText = title.text('TriGo')
+    mainTitleText.addClass('mainTitleText')
+    .font({
+        family: config.userConfig.fontSet.expr,
+        fill: config.userConfig.colorSet.darkMain
       })
-      // @ts-ignore
-      .css('user-select', 'none')
       .leading(0.9)
       .center(this.svg.cx(), 80);
 
-    let main_box = this.svg.group()
-    const main_box_button_width = 300;
-    const main_box_button_height = 80;
+    let mainBox = this.svg.group();
 
-    let learn_button = new Button(main_box, main_box_button_width, main_box_button_height, 50, 'Learn', config);
-    learn_button.svg.center(main_box.cx(), main_box.cy());
-    learn_button.svg.on('mousedown', () => {
-      new LearnSubmenu(config, learn_levels);
+    let learnButton = new Button(mainBox, 'Learn', config, 'mainBoxButton');
+    learnButton.svg.center(mainBox.cx(), mainBox.cy());
+    learnButton.svg.on('mousedown', () => {
+      new LearnSubmenu(config);
       this.clear();
     });
 
-    let practice_button = new Button(main_box, main_box_button_width, main_box_button_height, 50, 'Practice', config);
-    practice_button.svg.center(main_box.cx(), main_box.cy());
-    practice_button.svg.dy(Number(learn_button.svg.height()) + 5);
-    practice_button.svg.on('mousedown', () => {
+    let practiceButton = new Button(mainBox, 'Practice', config, 'mainBoxButton');
+    practiceButton.svg.dy(Number(learnButton.svg.height()) + 5);
+    practiceButton.svg.on('mousedown', () => {
       /*
-      new PracticeSubmenu(config, practice_levels);
+      new PracticeSubmenu(config, practiceLevels);
       this.clear();
       */
     });
 
-    main_box.center(window.innerWidth / 2, window.innerHeight / 2);
+    mainBox.center(this.svg.cx(), this.svg.cy());
   }
 
   clear() {
