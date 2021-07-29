@@ -161,7 +161,7 @@ class Level {
         .after(levelDescription).after(infoTitle);
       let infoCalculatedStyle = getComputedStyle(infoBox.node);
 
-      infoTitle.cx(info.cx()).dy(20);
+      infoTitle.cx(info.cx()).dy(50);
       levelDescription.cx(info.cx()).dy(150);
 
       let checkButton = new Button(info, '✓', this.config, 'checkButton');
@@ -191,7 +191,6 @@ class Level {
   }
 
   rebuildLevel() {
-    console.log('lev');
     this.expr.rebuildExpr();
     this.expr.svg.on('mousedown', this.rebuildSubsMenu.bind(this));
     this.leftsList = [];
@@ -255,10 +254,9 @@ class Level {
       });
 
     winBox.center(this.svg.cx(), window.innerHeight / 2 - 60);
-  };
+  }
 
   rebuildSubsMenu() {
-    console.log('subs');
     this.rightsList = [];
     if (this.expr.multiIdList.length !== 0) {
       this.rightsList = (TWF_lib.findApplicableSubstitutionsInSelectedPlace(
@@ -274,7 +272,7 @@ class Level {
     }
     this.subsCont.remove();
     this.subsCont = makeSubsMenu(this.subsWindow, this.leftsList, this.rightsList, this.expr);
-  };
+  }
 }
 
 function putExpr(level: Level) {
@@ -320,16 +318,8 @@ function makeSubsMenu(window: SVG.Container, listOfLefts: Array<string>,
 
     horizontalOffset = Number(innerCont.width()) + 10;
 
-    let rightSub;
-    try {
-      rightSub = new Expr(listOfLefts[i][1], innerCont, false, 50, expr.config)
-        .svg.x(horizontalOffset);
-    } catch (error) {
-      leftSub.remove();
-      rightArrow.remove();
-      console.log("Error occurred!");
-      continue;
-    }
+    let rightSub = new Expr(listOfLefts[i][1], innerCont, false, 50, expr.config)
+      .svg.x(horizontalOffset);
 
     horizontalOffset = Number(innerCont.width()) + 40;
 
@@ -352,18 +342,18 @@ function makeSubsMenu(window: SVG.Container, listOfLefts: Array<string>,
         .svg.x(leftSub.bbox().width + rightArrow.bbox().width + 10);
     }
 
-    new Button(innerCont, '', expr.config, 'subButton').svg
-      .stroke({ width: 4 })
-      .back();
+    let subButton = new Button(innerCont, '', expr.config, 'subButton');
+    subButton.svg.stroke({ width: 4 }).back();
+    subButton.rect.width(innerContWidth).height(Number(innerCont.height())).css({ cursor: 'pointer'});
 
     innerCont.on('mousedown', () => {
       // @ts-ignore
       expr.string = listOfRights[i].resultExpression.toString();
     });
 
-    leftSub.cy(innerCont.cy());
-    rightArrow.cy(innerCont.cy());
-    rightSub.cy(innerCont.cy());
+    leftSub.cy(subButton.rect.cy());
+    rightArrow.cy(subButton.rect.cy());
+    rightSub.cy(subButton.rect.cy());
 
     innerCont.dx(2).y(subsMenuHeight);
 

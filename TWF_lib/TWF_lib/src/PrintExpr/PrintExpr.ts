@@ -6,7 +6,7 @@ import { Config } from '../Config/ConfigClass';
 
 function printExpr(expr: Expr) {
   let fonts = expr.config.userConfig.fontSet;
-  let initFontSize = 100;
+  let initFontSize = expr.fontSize;
 
   let chrSample = SVG.SVG().text("X").font({size: initFontSize});
   const initChrSize = chrSample.bbox().height;
@@ -81,21 +81,28 @@ function printExpr(expr: Expr) {
 
   function division(topCont: SVG.Container, bottomCont: SVG.Container, cont: SVG.Container,
     size: number, nodeId: number) {
+    let topContWidth = topCont.bbox().width;
+    let bottomContWidth = bottomCont.bbox().width;
+    let topContHeight = topCont.bbox().height;
+    let topContX = topCont.x();
+    let topContY = Number(topCont.y());
+    let lineX = topContX;
+    let lineY = topContY + topContHeight;
+    let width = Math.max(topContWidth, bottomContWidth) + lineElongation;
+    let height = lineHeight[min(size - 1, maxSize)];
     cont.add(topCont);
     cont.add(bottomCont);
-    let width = Math.max(topCont.bbox().width, bottomCont.bbox().width) + lineElongation;
-    let height = lineHeight[min(size - 1, maxSize)];
     let line = cont
       .rect(width, height)
       .fill(expr.config.userConfig.colorSet.darkMain)
-      .move(topCont.bbox().x, Number(topCont.y()) + topCont.bbox().height);
+      .move(lineX, lineY);
 
     line.addClass("uncolored");
     cont.add(line);
 
     let lineHitbox = cont
       .rect(width, height * 5)
-      .move(line.x(), Number(line.y()) - height * 2);
+      .move(lineX, lineY - height * 2);
 
     lineHitbox.css("cursor", "pointer");
     lineHitbox.on("mousedown", () => onButtonDown(cont, nodeId, expr));
@@ -103,10 +110,10 @@ function printExpr(expr: Expr) {
     lineHitbox.on("mouseout", () => onButtonOut(cont));
     lineHitbox.opacity(0);
 
-    bottomCont.y(Number(topCont.y()) + topCont.bbox().height + Number(line.height()));
-    topCont.dx((Number(line.width()) - topCont.bbox().width) / 2);
-    bottomCont.dx((Number(line.width()) - bottomCont.bbox().width) / 2);
-    return topCont.bbox().height - Number(line.height()) * 1.5; //recommended vertical shift
+    bottomCont.y(topContY + topContHeight + height);
+    topCont.dx((width - topContWidth) / 2);
+    bottomCont.dx((width - bottomContWidth) / 2);
+    return topContHeight - height * 1.5; //recommended vertical shift
     //to keep the fraction centered
   }
 

@@ -29,7 +29,7 @@ new MainMenu(config);
 /*
 let app = SVG.SVG().addTo('body').size(window.innerWidth, window.innerHeight);
 let rect = app.rect(window.innerWidth, window.innerHeight).fill(config.userConfig.colorSet.lightBackground);
-let testString = '/(+(2;2;2;2);^(+(2;2;2;2;2);/(+(2;2;^(2;/(2;2));2;2);^(+(2;2;2;2;2);/(+(2;2;2;2;2);^(2;2))))))';
+let testString = '/(2;/(2;/(2;/(2;/(2;/(2;/(2;/(2;/(2;/(2;/(2;/(2;/(2;/(2;/(2;/(2;/(2;/(2;/(2;/(2;/(2;/(2;/(2;/(2;2))))))))))))))))))))))))';
 let expr = new Expr(testString, app, true, 100, config);
 expr.svg.center(rect.cx(), rect.cy());
 */
