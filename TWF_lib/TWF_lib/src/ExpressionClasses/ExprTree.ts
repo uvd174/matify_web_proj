@@ -1,12 +1,11 @@
 import { ExprNode } from './ExprNode';
-import * as SVG from '@svgdotjs/svg.js';
 // @ts-ignore
 import { TWF_lib } from '../libs/TWF_lib';
 
-function makeTree(node: any, app: SVG.Container): ExprNode {
-  let exprNode: ExprNode = new ExprNode(node, app);
+function makeTree(node: any): ExprNode {
+  let exprNode = new ExprNode(node);
   for (let i = 0; i < node.children.size; i++) {
-    exprNode.add(makeTree(node.children.toArray()[i], app));
+    exprNode.add(makeTree(node.children.toArray()[i]));
   }
   return exprNode;
 }
@@ -14,8 +13,9 @@ function makeTree(node: any, app: SVG.Container): ExprNode {
 class ExprTree {
   root: ExprNode;
 
-  constructor(exprString: string, app: SVG.Container) {
-    this.root = makeTree(TWF_lib.structureStringToExpression(exprString).children.toArray()[0], app);
+  constructor(exprString: string) {
+    let TWFTree = TWF_lib.structureStringToExpression(exprString);
+    this.root = makeTree(TWFTree.children.toArray()[0]);
   }
 }
 

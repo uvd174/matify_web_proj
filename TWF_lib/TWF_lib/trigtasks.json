@@ -1,0 +1,2397 @@
+[
+  {
+    "code": "1",
+    "version": 0,
+    "nameEn": "",
+    "nameRu": "",
+    "descriptionShortEn": "Given ctg(x) = 2, compute",
+    "descriptionShortRu": "Вычислите при ctg(x) = 2",
+    "descriptionEn": "Given ctg(x) = 2, compute",
+    "descriptionRu": "Вычислите при ctg(x) = 2",
+    "subjectType": "standard_math",
+    "tags": [
+      "trigonometry",
+      "short_multiplication"
+    ],
+    "originalExpressionStructureString": "(/(*(+(2;*(2;sin(x)));+(1;-(sin(x))));*(+(1;cos(x));+(2;-(*(2;cos(x)))))))",
+    "goalType": "???(compute)", // TODO: which goal types exist?
+    "goalExpressionStructureString": "(4)",
+    "goalPattern": "",
+    "rulePacks": [
+      {
+        "rulePackCode": "AdvancedTrigonometry"
+      }
+    ],
+    "rules": ["???"], // TODO: ctg(x) = 2
+    "stepsNumber": 0,
+    "time": 0,
+    "solution": "",
+    "solutionsStepsTree": {
+      "date": []
+    },
+    "hints": {
+      "data": []
+    }
+  },
+  {
+    "code": "2",
+    "version": 0,
+    "nameEn": "",
+    "nameRu": "",
+    "descriptionShortEn": "Prove the identity",
+    "descriptionShortRu": "Докажите тождество",
+    "descriptionEn": "Prove the identity",
+    "descriptionRu": "Докажите тождество",
+    "subjectType": "standard_math",
+    "tags": [
+      "trigonometry",
+      "short_multiplication"
+    ],
+    "originalExpressionStructureString": "(/(+(sin(x);-(cos(x)));+(sin(x);cos(x))))",
+    "goalType": "expression",
+    "goalExpressionStructureString": "(/(+(tg(x);-(1));+(tg(x);1)))",
+    "goalPattern": "",
+    "rulePacks": [
+      {
+        "rulePackCode": "AdvancedTrigonometry"
+      }
+    ],
+    "rules": [],
+    "stepsNumber": 0,
+    "time": 0,
+    "solution": "",
+    "solutionsStepsTree": {
+      "date": []
+    },
+    "hints": {
+      "data": []
+    }
+  },
+  {
+    "code": "3",
+    "version": 0,
+    "nameEn": "",
+    "nameRu": "",
+    "descriptionShortEn": "Prove the identity",
+    "descriptionShortRu": "Докажите тождество",
+    "descriptionEn": "Prove the identity",
+    "descriptionRu": "Докажите тождество",
+    "subjectType": "standard_math",
+    "tags": [
+      "trigonometry",
+      "short_multiplication"
+    ],
+    "originalExpressionStructureString": "(/(+(^(cos(x);3);-(^(sin(x);3)));+(cos(x);-(sin(x)))))",
+    "goalType": "expression",
+    "goalExpressionStructureString": "(+(1;*(sin(x);cos(x))))",
+    "goalPattern": "",
+    "rulePacks": [
+      {
+        "rulePackCode": "AdvancedTrigonometry"
+      }
+    ],
+    "rules": [],
+    "stepsNumber": 0,
+    "time": 0,
+    "solution": "",
+    "solutionsStepsTree": {
+      "date": []
+    },
+    "hints": {
+      "data": []
+    }
+  },
+  {
+    "code": "4",
+    "version": 0,
+    "nameEn": "",
+    "nameRu": "",
+    "descriptionShortEn": "Prove the identity",
+    "descriptionShortRu": "Докажите тождество",
+    "descriptionEn": "Prove the identity",
+    "descriptionRu": "Докажите тождество",
+    "subjectType": "standard_math",
+    "tags": [
+      "trigonometry",
+      "short_multiplication"
+    ],
+    "originalExpressionStructureString": "(/(+(^(sin(x);3);^(cos(x);3));+(sin(x);cos(x))))",
+    "goalType": "expression",
+    "goalExpressionStructureString": "(+(1;-(/(sin(*(2;x));2))))",
+    "goalPattern": "",
+    "rulePacks": [
+      {
+        "rulePackCode": "AdvancedTrigonometry"
+      }
+    ],
+    "rules": [],
+    "stepsNumber": 0,
+    "time": 0,
+    "solution": "",
+    "solutionsStepsTree": {
+      "date": []
+    },
+    "hints": {
+      "data": []
+    }
+  },
+  {
+    "code": "5",
+    "version": 0,
+    "nameEn": "",
+    "nameRu": "",
+    "descriptionShortEn": "Prove the identity",
+    "descriptionShortRu": "Докажите тождество",
+    "descriptionEn": "Prove the identity",
+    "descriptionRu": "Докажите тождество",
+    "subjectType": "standard_math",
+    "tags": [
+      "trigonometry",
+      "short_multiplication"
+    ],
+    "originalExpressionStructureString": "(/(+(1;-(^(tg(/(x;2));2)));+(1;^(tg(/(x;2));2))))",
+    "goalType": "expression",
+    "goalExpressionStructureString": "(cos(x))",
+    "goalPattern": "",
+    "rulePacks": [
+      {
+        "rulePackCode": "AdvancedTrigonometry"
+      }
+    ],
+    "rules": [],
+    "stepsNumber": 0,
+    "time": 0,
+    "solution": "",
+    "solutionsStepsTree": {
+      "date": []
+    },
+    "hints": {
+      "data": []
+    }
+  },
+  {
+    "code": "6",
+    "version": 0,
+    "nameEn": "",
+    "nameRu": "",
+    "descriptionShortEn": "Prove the identity",
+    "descriptionShortRu": "Докажите тождество",
+    "descriptionEn": "Prove the identity",
+    "descriptionRu": "Докажите тождество",
+    "subjectType": "standard_math",
+    "tags": [
+      "trigonometry",
+      "short_multiplication"
+    ],
+    "originalExpressionStructureString": "(+(tg(*(4;x));-(/(1;cos(*(4;x))))))",
+    "goalType": "expression",
+    "goalExpressionStructureString": "(/(+(sin(*(2;x));-(cos(*(2;x))));+(sin(*(2;x));cos(*(2;x)))))",
+    "goalPattern": "",
+    "rulePacks": [
+      {
+        "rulePackCode": "AdvancedTrigonometry"
+      }
+    ],
+    "rules": [],
+    "stepsNumber": 0,
+    "time": 0,
+    "solution": "",
+    "solutionsStepsTree": {
+      "date": []
+    },
+    "hints": {
+      "data": []
+    }
+  },
+  {
+    "code": "7",
+    "version": 0,
+    "nameEn": "",
+    "nameRu": "",
+    "descriptionShortEn": "Prove the identity",
+    "descriptionShortRu": "Докажите тождество",
+    "descriptionEn": "Prove the identity",
+    "descriptionRu": "Докажите тождество",
+    "subjectType": "standard_math",
+    "tags": [
+      "trigonometry",
+      "short_multiplication"
+    ],
+    "originalExpressionStructureString": "(/(sin(*(2;x));+(1;cos(*(2;x)))))",
+    "goalType": "expression",
+    "goalExpressionStructureString": "(tg(x))",
+    "goalPattern": "",
+    "rulePacks": [
+      {
+        "rulePackCode": "AdvancedTrigonometry"
+      }
+    ],
+    "rules": [],
+    "stepsNumber": 0,
+    "time": 0,
+    "solution": "",
+    "solutionsStepsTree": {
+      "date": []
+    },
+    "hints": {
+      "data": []
+    }
+  },
+  {
+    "code": "8",
+    "version": 0,
+    "nameEn": "",
+    "nameRu": "",
+    "descriptionShortEn": "Prove the identity",
+    "descriptionShortRu": "Докажите тождество",
+    "descriptionEn": "Prove the identity",
+    "descriptionRu": "Докажите тождество",
+    "subjectType": "standard_math",
+    "tags": [
+      "trigonometry",
+      "short_multiplication"
+    ],
+    "originalExpressionStructureString": "(/(+(1;-(^(sin(x);4)));^(cos(x);2)))",
+    "goalType": "expression",
+    "goalExpressionStructureString": "(+(2;-(^(cos(x);2))))",
+    "goalPattern": "",
+    "rulePacks": [
+      {
+        "rulePackCode": "AdvancedTrigonometry"
+      }
+    ],
+    "rules": [],
+    "stepsNumber": 0,
+    "time": 0,
+    "solution": "",
+    "solutionsStepsTree": {
+      "date": []
+    },
+    "hints": {
+      "data": []
+    }
+  },
+  {
+    "code": "9",
+    "version": 0,
+    "nameEn": "",
+    "nameRu": "",
+    "descriptionShortEn": "Prove the identity",
+    "descriptionShortRu": "Докажите тождество",
+    "descriptionEn": "Prove the identity",
+    "descriptionRu": "Докажите тождество",
+    "subjectType": "standard_math",
+    "tags": [
+      "trigonometry",
+      "short_multiplication"
+    ],
+    "originalExpressionStructureString": "(+(/(sin(x);+(1;cos(x)));/(+(1;cos(x));sin(x))))",
+    "goalType": "expression",
+    "goalExpressionStructureString": "(/(2;sin(x)))",
+    "goalPattern": "",
+    "rulePacks": [
+      {
+        "rulePackCode": "AdvancedTrigonometry"
+      }
+    ],
+    "rules": [],
+    "stepsNumber": 0,
+    "time": 0,
+    "solution": "",
+    "solutionsStepsTree": {
+      "date": []
+    },
+    "hints": {
+      "data": []
+    }
+  },
+  {
+    "code": "10",
+    "version": 0,
+    "nameEn": "",
+    "nameRu": "",
+    "descriptionShortEn": "Prove the identity",
+    "descriptionShortRu": "Докажите тождество",
+    "descriptionEn": "Prove the identity",
+    "descriptionRu": "Докажите тождество",
+    "subjectType": "standard_math",
+    "tags": [
+      "trigonometry",
+      "short_multiplication"
+    ],
+    "originalExpressionStructureString": "(/(+(1;-(sin(x)));cos(x)))",
+    "goalType": "expression",
+    "goalExpressionStructureString": "(/(cos(x);+(1;sin(x))))",
+    "goalPattern": "",
+    "rulePacks": [
+      {
+        "rulePackCode": "AdvancedTrigonometry"
+      }
+    ],
+    "rules": [],
+    "stepsNumber": 0,
+    "time": 0,
+    "solution": "",
+    "solutionsStepsTree": {
+      "date": []
+    },
+    "hints": {
+      "data": []
+    }
+  },
+  {
+    "code": "11",
+    "version": 0,
+    "nameEn": "",
+    "nameRu": "",
+    "descriptionShortEn": "Compute",
+    "descriptionShortRu": "Вычислите",
+    "descriptionEn": "Compute",
+    "descriptionRu": "Вычислите",
+    "subjectType": "standard_math",
+    "tags": [
+      "trigonometry",
+      "short_multiplication"
+    ],
+    "originalExpressionStructureString": "(*(sin(75o);sin(15o)))", // TODO: degree sign?
+    "goalType": "???(compute)", // TODO
+    "goalExpressionStructureString": "(/(1;4))", // TODO: 0.25 is an option
+    "goalPattern": "",
+    "rulePacks": [
+      {
+        "rulePackCode": "AdvancedTrigonometry"
+      }
+    ],
+    "rules": [],
+    "stepsNumber": 0,
+    "time": 0,
+    "solution": "",
+    "solutionsStepsTree": {
+      "date": []
+    },
+    "hints": {
+      "data": []
+    }
+  },
+  {
+    "code": "12",
+    "version": 0,
+    "nameEn": "",
+    "nameRu": "",
+    "descriptionShortEn": "Prove the identity",
+    "descriptionShortRu": "Докажите тождество",
+    "descriptionEn": "Prove the identity",
+    "descriptionRu": "Докажите тождество",
+    "subjectType": "standard_math",
+    "tags": [
+      "trigonometry",
+      "short_multiplication"
+    ],
+    "originalExpressionStructureString": "(+(cos(*(4;x));*(4;cos(*(2;x)));3))",
+    "goalType": "expression",
+    "goalExpressionStructureString": "(*(8;^(cos(x);4)))",
+    "goalPattern": "",
+    "rulePacks": [
+      {
+        "rulePackCode": "AdvancedTrigonometry"
+      }
+    ],
+    "rules": [],
+    "stepsNumber": 0,
+    "time": 0,
+    "solution": "",
+    "solutionsStepsTree": {
+      "date": []
+    },
+    "hints": {
+      "data": []
+    }
+  },
+  {
+    "code": "13",
+    "version": 0,
+    "nameEn": "",
+    "nameRu": "",
+    "descriptionShortEn": "Given tg(2x) = 4, compute",
+    "descriptionShortRu": "Вычислите при tg(2x) = 4",
+    "descriptionEn": "Given tg(2x) = 4, compute",
+    "descriptionRu": "Вычислите при tg(2x) = 4",
+    "subjectType": "standard_math",
+    "tags": [
+      "trigonometry",
+      "short_multiplication"
+    ],
+    "originalExpressionStructureString": "(+(sin(*(4;x));*(cos(*(4;x));ctg(*(2;x)))))",
+    "goalType": "???(compute)", // TODO
+    "goalExpressionStructureString": "(/(1;4))", // TODO: 0.25 is an option
+    "goalPattern": "",
+    "rulePacks": [
+      {
+        "rulePackCode": "AdvancedTrigonometry"
+      }
+    ],
+    "rules": [], // TODO: tg(2x) = 4
+    "stepsNumber": 0,
+    "time": 0,
+    "solution": "",
+    "solutionsStepsTree": {
+      "date": []
+    },
+    "hints": {
+      "data": []
+    }
+  },
+  {
+    "code": "14",
+    "version": 0,
+    "nameEn": "",
+    "nameRu": "",
+    "descriptionShortEn": "Compute",
+    "descriptionShortRu": "Вычислите",
+    "descriptionEn": "Compute",
+    "descriptionRu": "Вычислите",
+    "subjectType": "standard_math",
+    "tags": [
+      "trigonometry"
+    ],
+    "originalExpressionStructureString": "(+(cos(24o);cos(5o);cos(175o);cos(204o);cos(300o)))", // TODO: degree sign?
+    "goalType": "???(compute)", // TODO
+    "goalExpressionStructureString": "(/(1;2))", // TODO: 0.5 is an option
+    "goalPattern": "",
+    "rulePacks": [
+      {
+        "rulePackCode": "AdvancedTrigonometry"
+      }
+    ],
+    "rules": [],
+    "stepsNumber": 0,
+    "time": 0,
+    "solution": "",
+    "solutionsStepsTree": {
+      "date": []
+    },
+    "hints": {
+      "data": []
+    }
+  },
+  {
+    "code": "15",
+    "version": 0,
+    "nameEn": "",
+    "nameRu": "",
+    "descriptionShortEn": "Compute",
+    "descriptionShortRu": "Вычислите",
+    "descriptionEn": "Compute",
+    "descriptionRu": "Вычислите",
+    "subjectType": "standard_math",
+    "tags": [
+      "trigonometry"
+    ],
+    "originalExpressionStructureString": "(sin(+(-(585o))))", // TODO: degree sign?
+    "goalType": "???(compute)", // TODO
+    "goalExpressionStructureString": "(/(^(2;0.5);2))", // TODO: other option
+    "goalPattern": "",
+    "rulePacks": [
+      {
+        "rulePackCode": "AdvancedTrigonometry"
+      }
+    ],
+    "rules": [],
+    "stepsNumber": 0,
+    "time": 0,
+    "solution": "",
+    "solutionsStepsTree": {
+      "date": []
+    },
+    "hints": {
+      "data": []
+    }
+  },
+  {
+    "code": "16",
+    "version": 0,
+    "nameEn": "",
+    "nameRu": "",
+    "descriptionShortEn": "Compute",
+    "descriptionShortRu": "Вычислите",
+    "descriptionEn": "Compute",
+    "descriptionRu": "Вычислите",
+    "subjectType": "standard_math",
+    "tags": [
+      "trigonometry"
+    ],
+    "originalExpressionStructureString": "(cos(/(*(8;pi);3)))", // TODO: is it pi?
+    "goalType": "???(compute)", // TODO
+    "goalExpressionStructureString": "(+(-(/(1;2))))", // TODO: other options
+    "goalPattern": "",
+    "rulePacks": [
+      {
+        "rulePackCode": "AdvancedTrigonometry"
+      }
+    ],
+    "rules": [],
+    "stepsNumber": 0,
+    "time": 0,
+    "solution": "",
+    "solutionsStepsTree": {
+      "date": []
+    },
+    "hints": {
+      "data": []
+    }
+  },
+  {
+    "code": "17",
+    "version": 0,
+    "nameEn": "",
+    "nameRu": "",
+    "descriptionShortEn": "Convert degrees to radians",
+    "descriptionShortRu": "Переведите градусы в радианы",
+    "descriptionEn": "Convert degrees to radians",
+    "descriptionRu": "Переведите градусы в радианы",
+    "subjectType": "standard_math",
+    "tags": [
+      "trigonometry",
+      "short_multiplication"
+    ],
+    "originalExpressionStructureString": "(30o)", // TODO
+    "goalType": "???", // TODO
+    "goalExpressionStructureString": "(/(pi;6))",
+    "goalPattern": "",
+    "rulePacks": [
+      {
+        "rulePackCode": "AdvancedTrigonometry"
+      }
+    ],
+    "rules": [],
+    "stepsNumber": 0,
+    "time": 0,
+    "solution": "",
+    "solutionsStepsTree": {
+      "date": []
+    },
+    "hints": {
+      "data": []
+    }
+  },
+  {
+    "code": "18",
+    "version": 0,
+    "nameEn": "",
+    "nameRu": "",
+    "descriptionShortEn": "Convert degrees to radians",
+    "descriptionShortRu": "Переведите градусы в радианы",
+    "descriptionEn": "Convert degrees to radians",
+    "descriptionRu": "Переведите градусы в радианы",
+    "subjectType": "standard_math",
+    "tags": [
+      "trigonometry",
+      "short_multiplication"
+    ],
+    "originalExpressionStructureString": "(60o)", // TODO
+    "goalType": "???", // TODO
+    "goalExpressionStructureString": "(/(pi;3))",
+    "goalPattern": "",
+    "rulePacks": [
+      {
+        "rulePackCode": "AdvancedTrigonometry"
+      }
+    ],
+    "rules": [],
+    "stepsNumber": 0,
+    "time": 0,
+    "solution": "",
+    "solutionsStepsTree": {
+      "date": []
+    },
+    "hints": {
+      "data": []
+    }
+  },
+  {
+    "code": "19",
+    "version": 0,
+    "nameEn": "",
+    "nameRu": "",
+    "descriptionShortEn": "Convert degrees to radians",
+    "descriptionShortRu": "Переведите градусы в радианы",
+    "descriptionEn": "Convert degrees to radians",
+    "descriptionRu": "Переведите градусы в радианы",
+    "subjectType": "standard_math",
+    "tags": [
+      "trigonometry",
+      "short_multiplication"
+    ],
+    "originalExpressionStructureString": "(90o)", // TODO
+    "goalType": "???", // TODO
+    "goalExpressionStructureString": "(/(pi;2))",
+    "goalPattern": "",
+    "rulePacks": [
+      {
+        "rulePackCode": "AdvancedTrigonometry"
+      }
+    ],
+    "rules": [],
+    "stepsNumber": 0,
+    "time": 0,
+    "solution": "",
+    "solutionsStepsTree": {
+      "date": []
+    },
+    "hints": {
+      "data": []
+    }
+  },
+  {
+    "code": "20",
+    "version": 0,
+    "nameEn": "",
+    "nameRu": "",
+    "descriptionShortEn": "Convert degrees to radians",
+    "descriptionShortRu": "Переведите градусы в радианы",
+    "descriptionEn": "Convert degrees to radians",
+    "descriptionRu": "Переведите градусы в радианы",
+    "subjectType": "standard_math",
+    "tags": [
+      "trigonometry",
+      "short_multiplication"
+    ],
+    "originalExpressionStructureString": "(45o)", // TODO
+    "goalType": "???", // TODO
+    "goalExpressionStructureString": "(/(pi;4))",
+    "goalPattern": "",
+    "rulePacks": [
+      {
+        "rulePackCode": "AdvancedTrigonometry"
+      }
+    ],
+    "rules": [],
+    "stepsNumber": 0,
+    "time": 0,
+    "solution": "",
+    "solutionsStepsTree": {
+      "date": []
+    },
+    "hints": {
+      "data": []
+    }
+  },
+  {
+    "code": "21",
+    "version": 0,
+    "nameEn": "",
+    "nameRu": "",
+    "descriptionShortEn": "Convert radians to degrees",
+    "descriptionShortRu": "Переведите радианы в градусы",
+    "descriptionEn": "Convert radians to degrees",
+    "descriptionRu": "Переведите радианы в градусы",
+    "subjectType": "standard_math",
+    "tags": [
+      "trigonometry",
+      "short_multiplication"
+    ],
+    "originalExpressionStructureString": "(/(*(5;pi);4))",
+    "goalType": "???", // TODO
+    "goalExpressionStructureString": "(225o)", // TODO
+    "goalPattern": "",
+    "rulePacks": [
+      {
+        "rulePackCode": "AdvancedTrigonometry"
+      }
+    ],
+    "rules": [],
+    "stepsNumber": 0,
+    "time": 0,
+    "solution": "",
+    "solutionsStepsTree": {
+      "date": []
+    },
+    "hints": {
+      "data": []
+    }
+  },
+  {
+    "code": "22",
+    "version": 0,
+    "nameEn": "",
+    "nameRu": "",
+    "descriptionShortEn": "Convert radians to degrees",
+    "descriptionShortRu": "Переведите радианы в градусы",
+    "descriptionEn": "Convert radians to degrees",
+    "descriptionRu": "Переведите радианы в градусы",
+    "subjectType": "standard_math",
+    "tags": [
+      "trigonometry",
+      "short_multiplication"
+    ],
+    "originalExpressionStructureString": "(+(-(/(*(7;pi);12))))",
+    "goalType": "???", // TODO
+    "goalExpressionStructureString": "(+(-(105o)))", // TODO
+    "goalPattern": "",
+    "rulePacks": [
+      {
+        "rulePackCode": "AdvancedTrigonometry"
+      }
+    ],
+    "rules": [],
+    "stepsNumber": 0,
+    "time": 0,
+    "solution": "",
+    "solutionsStepsTree": {
+      "date": []
+    },
+    "hints": {
+      "data": []
+    }
+  },
+  {
+    "code": "23",
+    "version": 0,
+    "nameEn": "",
+    "nameRu": "",
+    "descriptionShortEn": "Write using a positive acute angle",
+    "descriptionShortRu": "Запишите через положительный острый угол",
+    "descriptionEn": "Write using a positive acute angle",
+    "descriptionRu": "Приведите тригонометрическую функцию произвольного аргумента к тригонометрической функции острого угла",
+    "subjectType": "standard_math",
+    "tags": [
+      "trigonometry"
+    ],
+    "originalExpressionStructureString": "(sin(405o))", // TODO
+    "goalType": "???", // TODO
+    "goalExpressionStructureString": "(sin(45o))", // TODO: degree sign + other options
+    "goalPattern": "",
+    "rulePacks": [
+      {
+        "rulePackCode": "AdvancedTrigonometry"
+      }
+    ],
+    "rules": [],
+    "stepsNumber": 0,
+    "time": 0,
+    "solution": "",
+    "solutionsStepsTree": {
+      "date": []
+    },
+    "hints": {
+      "data": []
+    }
+  },
+  {
+    "code": "24",
+    "version": 0,
+    "nameEn": "",
+    "nameRu": "",
+    "descriptionShortEn": "Write using a positive acute angle",
+    "descriptionShortRu": "Запишите через положительный острый угол",
+    "descriptionEn": "Write using a positive acute angle",
+    "descriptionRu": "Приведите тригонометрическую функцию произвольного аргумента к тригонометрической функции острого угла",
+    "subjectType": "standard_math",
+    "tags": [
+      "trigonometry"
+    ],
+    "originalExpressionStructureString": "(cos(/(*(18;pi);5)))",
+    "goalType": "???", // TODO
+    "goalExpressionStructureString": "(cos(/(*(2;pi);5)))", // TODO: degree sign + other options
+    "goalPattern": "",
+    "rulePacks": [
+      {
+        "rulePackCode": "AdvancedTrigonometry"
+      }
+    ],
+    "rules": [],
+    "stepsNumber": 0,
+    "time": 0,
+    "solution": "",
+    "solutionsStepsTree": {
+      "date": []
+    },
+    "hints": {
+      "data": []
+    }
+  },
+  {
+    "code": "25",
+    "version": 0,
+    "nameEn": "",
+    "nameRu": "",
+    "descriptionShortEn": "Write using a positive acute angle",
+    "descriptionShortRu": "Запишите через положительный острый угол",
+    "descriptionEn": "Write using a positive acute angle",
+    "descriptionRu": "Приведите тригонометрическую функцию произвольного аргумента к тригонометрической функции острого угла",
+    "subjectType": "standard_math",
+    "tags": [
+      "trigonometry"
+    ],
+    "originalExpressionStructureString": "(tg(863o))", // TODO
+    "goalType": "???", // TODO
+    "goalExpressionStructureString": "(+(-(tg(37o))))", // TODO: degree sign + other options
+    "goalPattern": "",
+    "rulePacks": [
+      {
+        "rulePackCode": "AdvancedTrigonometry"
+      }
+    ],
+    "rules": [],
+    "stepsNumber": 0,
+    "time": 0,
+    "solution": "",
+    "solutionsStepsTree": {
+      "date": []
+    },
+    "hints": {
+      "data": []
+    }
+  },
+  {
+    "code": "26",
+    "version": 0,
+    "nameEn": "",
+    "nameRu": "",
+    "descriptionShortEn": "Prove the identity",
+    "descriptionShortRu": "Докажите тождество",
+    "descriptionEn": "Prove the identity",
+    "descriptionRu": "Докажите тождество",
+    "subjectType": "standard_math",
+    "tags": [
+      "trigonometry"
+    ],
+    "originalExpressionStructureString": "(/(+(1;-(cos(x));cos(*(2;x)));+(sin(*(2;x));-(sin(x)))))",
+    "goalType": "expression",
+    "goalExpressionStructureString": "(tg(x))", // TODO: maybe ctg?
+    "goalPattern": "",
+    "rulePacks": [
+      {
+        "rulePackCode": "AdvancedTrigonometry"
+      }
+    ],
+    "rules": [],
+    "stepsNumber": 0,
+    "time": 0,
+    "solution": "",
+    "solutionsStepsTree": {
+      "date": []
+    },
+    "hints": {
+      "data": []
+    }
+  },
+  {
+    "code": "27",
+    "version": 0,
+    "nameEn": "",
+    "nameRu": "",
+    "descriptionShortEn": "Compute",
+    "descriptionShortRu": "Вычислите",
+    "descriptionEn": "Compute",
+    "descriptionRu": "Вычислите",
+    "subjectType": "standard_math",
+    "tags": [
+      "trigonometry"
+    ],
+    "originalExpressionStructureString": "(+(^(+(*(sin(/(*(3;pi);10));cos(/(*(2;pi);5)));*(cos(/(*(3;pi);10));sin(/(*(2;pi);5))));2);^(+(*(cos(/(pi;10));cos(/(*(3;pi);5)));-(*(sin(/(pi;10));sin(/(*(3;pi);5)))));2)))",
+    "goalType": "???(compute)", // TODO
+    "goalExpressionStructureString": "(1)",
+    "goalPattern": "",
+    "rulePacks": [
+      {
+        "rulePackCode": "AdvancedTrigonometry"
+      }
+    ],
+    "rules": [],
+    "stepsNumber": 0,
+    "time": 0,
+    "solution": "",
+    "solutionsStepsTree": {
+      "date": []
+    },
+    "hints": {
+      "data": []
+    }
+  },
+  {
+    "code": "28",
+    "version": 0,
+    "nameEn": "",
+    "nameRu": "",
+    "descriptionShortEn": "Simplify",
+    "descriptionShortRu": "Упростите",
+    "descriptionEn": "Simplify",
+    "descriptionRu": "Упростите",
+    "subjectType": "standard_math",
+    "tags": [
+      "trigonometry",
+      "short_multiplication"
+    ],
+    "originalExpressionStructureString": "(+(^(+(sin(x);-(cos(x)));2);sin(*(2;x))))",
+    "goalType": "???(simplify)", // TODO: new type?
+    "goalExpressionStructureString": "(1)",
+    "goalPattern": "",
+    "rulePacks": [
+      {
+        "rulePackCode": "AdvancedTrigonometry"
+      }
+    ],
+    "rules": [],
+    "stepsNumber": 0,
+    "time": 0,
+    "solution": "",
+    "solutionsStepsTree": {
+      "date": []
+    },
+    "hints": {
+      "data": []
+    }
+  },
+  {
+    "code": "29",
+    "version": 0,
+    "nameEn": "",
+    "nameRu": "",
+    "descriptionShortEn": "Simplify",
+    "descriptionShortRu": "Упростите",
+    "descriptionEn": "Simplify",
+    "descriptionRu": "Упростите",
+    "subjectType": "standard_math",
+    "tags": [
+      "trigonometry",
+      "short_multiplication"
+    ],
+    "originalExpressionStructureString": "(/(*(+(1;-(cos(x)));+(1;cos(x)));sin(x)))",
+    "goalType": "???(simplify)", // TODO: new type?
+    "goalExpressionStructureString": "(sin(x))",
+    "goalPattern": "",
+    "rulePacks": [
+      {
+        "rulePackCode": "AdvancedTrigonometry"
+      }
+    ],
+    "rules": [],
+    "stepsNumber": 0,
+    "time": 0,
+    "solution": "",
+    "solutionsStepsTree": {
+      "date": []
+    },
+    "hints": {
+      "data": []
+    }
+  },
+  {
+    "code": "30",
+    "version": 0,
+    "nameEn": "",
+    "nameRu": "",
+    "descriptionShortEn": "Simplify",
+    "descriptionShortRu": "Упростите",
+    "descriptionEn": "Simplify",
+    "descriptionRu": "Упростите",
+    "subjectType": "standard_math",
+    "tags": [
+      "trigonometry",
+      "short_multiplication"
+    ],
+    "originalExpressionStructureString": "(+(/(*(cos(x);tg(x));^(sin(x);2));-(*(ctg(x);cos(x)))))",
+    "goalType": "???(simplify)", // TODO: new type?
+    "goalExpressionStructureString": "(sin(x))",
+    "goalPattern": "",
+    "rulePacks": [
+      {
+        "rulePackCode": "AdvancedTrigonometry"
+      }
+    ],
+    "rules": [],
+    "stepsNumber": 0,
+    "time": 0,
+    "solution": "",
+    "solutionsStepsTree": {
+      "date": []
+    },
+    "hints": {
+      "data": []
+    }
+  },
+  {
+    "code": "31",
+    "version": 0,
+    "nameEn": "",
+    "nameRu": "",
+    "descriptionShortEn": "Simplify",
+    "descriptionShortRu": "Упростите",
+    "descriptionEn": "Simplify",
+    "descriptionRu": "Упростите",
+    "subjectType": "standard_math",
+    "tags": [
+      "trigonometry",
+      "short_multiplication"
+    ],
+    "originalExpressionStructureString": "(/(cos(*(2;x));+(cos(x);-(sin(x)))))",
+    "goalType": "???(simplify)", // TODO: new type?
+    "goalExpressionStructureString": "(+(sin(x);cos(x)))",
+    "goalPattern": "",
+    "rulePacks": [
+      {
+        "rulePackCode": "AdvancedTrigonometry"
+      }
+    ],
+    "rules": [],
+    "stepsNumber": 0,
+    "time": 0,
+    "solution": "",
+    "solutionsStepsTree": {
+      "date": []
+    },
+    "hints": {
+      "data": []
+    }
+  },
+  {
+    "code": "32",
+    "version": 0,
+    "nameEn": "",
+    "nameRu": "",
+    "descriptionShortEn": "Simplify",
+    "descriptionShortRu": "Упростите",
+    "descriptionEn": "Simplify",
+    "descriptionRu": "Упростите",
+    "subjectType": "standard_math",
+    "tags": [
+      "trigonometry",
+      "short_multiplication"
+    ],
+    "originalExpressionStructureString": "(/(+(1;-(sin(*(2;x))));+(cos(x);-(sin(x)))))",
+    "goalType": "???(simplify)", // TODO: new type?
+    "goalExpressionStructureString": "(+(cos(x);-(sin(x))))",
+    "goalPattern": "",
+    "rulePacks": [
+      {
+        "rulePackCode": "AdvancedTrigonometry"
+      }
+    ],
+    "rules": [],
+    "stepsNumber": 0,
+    "time": 0,
+    "solution": "",
+    "solutionsStepsTree": {
+      "date": []
+    },
+    "hints": {
+      "data": []
+    }
+  },
+  {
+    "code": "33",
+    "version": 0,
+    "nameEn": "",
+    "nameRu": "",
+    "descriptionShortEn": "Prove th identity",
+    "descriptionShortRu": "Докажите тождество",
+    "descriptionEn": "Prove the identity",
+    "descriptionRu": "Докажите тождество",
+    "subjectType": "standard_math",
+    "tags": [
+      "trigonometry",
+      "short_multiplication"
+    ],
+    "originalExpressionStructureString": "(/(+(1;cos(/(x;2));-(sin(/(x;2))));+(1;-(cos(/(x;2)));-(sin(/(x;2))))))",
+    "goalType": "expression",
+    "goalExpressionStructureString": "(+(-(ctg(/(x;4)))))",
+    "goalPattern": "",
+    "rulePacks": [
+      {
+        "rulePackCode": "AdvancedTrigonometry"
+      }
+    ],
+    "rules": [],
+    "stepsNumber": 0,
+    "time": 0,
+    "solution": "",
+    "solutionsStepsTree": {
+      "date": []
+    },
+    "hints": {
+      "data": []
+    }
+  },
+  {
+    "code": "34",
+    "version": 0,
+    "nameEn": "",
+    "nameRu": "",
+    "descriptionShortEn": "Simplify",
+    "descriptionShortRu": "Упростите",
+    "descriptionEn": "Simplify",
+    "descriptionRu": "Упростите",
+    "subjectType": "standard_math",
+    "tags": [
+      "trigonometry",
+      "short_multiplication"
+    ],
+    "originalExpressionStructureString": "(/(+(sin(x);-(sin(*(3;x)));-(sin(*(5;x)));sin(*(7;x)));+(cos(x);-(cos(*(3;x)));cos(*(5;x));-(cos(*(7;x))))))",
+    "goalType": "???(simplify)", // TODO
+    "goalExpressionStructureString": "(+(-(tg(*(2;x)))))",
+    "goalPattern": "",
+    "rulePacks": [
+      {
+        "rulePackCode": "AdvancedTrigonometry"
+      }
+    ],
+    "rules": [],
+    "stepsNumber": 0,
+    "time": 0,
+    "solution": "",
+    "solutionsStepsTree": {
+      "date": []
+    },
+    "hints": {
+      "data": []
+    }
+  },
+  {
+    "code": "35",
+    "version": 0,
+    "nameEn": "",
+    "nameRu": "",
+    "descriptionShortEn": "Simplify",
+    "descriptionShortRu": "Упростите",
+    "descriptionEn": "Simplify",
+    "descriptionRu": "Упростите",
+    "subjectType": "standard_math",
+    "tags": [
+      "trigonometry",
+      "short_multiplication"
+    ],
+    "originalExpressionStructureString": "(/(+(*(2;^(sin(*(4;x));2));-(1));*(2;ctg(+(/(pi;4);*(4;x)));^(cos(+(/(*(5;pi);4);-(*(4;x))));2))))",
+    "goalType": "???(simplify)", // TODO
+    "goalExpressionStructureString": "(+(-(1)))",
+    "goalPattern": "",
+    "rulePacks": [
+      {
+        "rulePackCode": "AdvancedTrigonometry"
+      }
+    ],
+    "rules": [],
+    "stepsNumber": 0,
+    "time": 0,
+    "solution": "",
+    "solutionsStepsTree": {
+      "date": []
+    },
+    "hints": {
+      "data": []
+    }
+  },
+  {
+    "code": "36",
+    "version": 0,
+    "nameEn": "",
+    "nameRu": "",
+    "descriptionShortEn": "Simplify",
+    "descriptionShortRu": "Упростите",
+    "descriptionEn": "Simplify",
+    "descriptionRu": "Упростите",
+    "subjectType": "standard_math",
+    "tags": [
+      "trigonometry",
+      "short_multiplication"
+    ],
+    "originalExpressionStructureString": "(+(*(8;^(cos(x);6));*(8;^(sin(x);6));-(*(3;cos(*(4;x))))))",
+    "goalType": "???(simplify)", // TODO
+    "goalExpressionStructureString": "(5)",
+    "goalPattern": "",
+    "rulePacks": [
+      {
+        "rulePackCode": "AdvancedTrigonometry"
+      }
+    ],
+    "rules": [],
+    "stepsNumber": 0,
+    "time": 0,
+    "solution": "",
+    "solutionsStepsTree": {
+      "date": []
+    },
+    "hints": {
+      "data": []
+    }
+  },
+  {
+    "code": "37",
+    "version": 0,
+    "nameEn": "",
+    "nameRu": "",
+    "descriptionShortEn": "Simplify",
+    "descriptionShortRu": "Упростите",
+    "descriptionEn": "Simplify",
+    "descriptionRu": "Упростите",
+    "subjectType": "standard_math",
+    "tags": [
+      "trigonometry",
+      "short_multiplication"
+    ],
+    "originalExpressionStructureString": "(+(*(2;sin(10o);sin(40o));cos(50o)))",
+    "goalType": "???(simplify)", // TODO
+    "goalExpressionStructureString": "(/(^(3;0.5);2))",
+    "goalPattern": "",
+    "rulePacks": [
+      {
+        "rulePackCode": "AdvancedTrigonometry"
+      }
+    ],
+    "rules": [],
+    "stepsNumber": 0,
+    "time": 0,
+    "solution": "",
+    "solutionsStepsTree": {
+      "date": []
+    },
+    "hints": {
+      "data": []
+    }
+  },
+  {
+    "code": "38",
+    "version": 0,
+    "nameEn": "",
+    "nameRu": "",
+    "descriptionShortEn": "Prove the identity",
+    "descriptionShortRu": "Докажите тождество",
+    "descriptionEn": "Prove the identity",
+    "descriptionRu": "Докажите тождество",
+    "subjectType": "standard_math",
+    "tags": [
+      "trigonometry",
+      "short_multiplication"
+    ],
+    "originalExpressionStructureString": "(+(/(1;+(tg(*(3;x));tg(x)));-(/(1;+(ctg(*(3;x));ctg(x))))))",
+    "goalType": "expression",
+    "goalExpressionStructureString": "(ctg(*(4;x)))",
+    "goalPattern": "",
+    "rulePacks": [
+      {
+        "rulePackCode": "AdvancedTrigonometry"
+      }
+    ],
+    "rules": [],
+    "stepsNumber": 0,
+    "time": 0,
+    "solution": "",
+    "solutionsStepsTree": {
+      "date": []
+    },
+    "hints": {
+      "data": []
+    }
+  },
+  {
+    "code": "39",
+    "version": 0,
+    "nameEn": "",
+    "nameRu": "",
+    "descriptionShortEn": "Given sin(x) + cos(x) = 5/4, compute",
+    "descriptionShortRu": "Вычислите при sin(x) + cos(x) = 5/4",
+    "descriptionEn": "Given sin(x) + cos(x) = 5/4, compute",
+    "descriptionRu": "Вычислите при sin(x) + cos(x) = 5/4",
+    "subjectType": "standard_math",
+    "tags": [
+      "trigonometry",
+      "short_multiplication"
+    ],
+    "originalExpressionStructureString": "(sin(*(2;x)))",
+    "goalType": "expression", // TODO
+    "goalExpressionStructureString": "(/(9;16))",
+    "goalPattern": "",
+    "rulePacks": [
+      {
+        "rulePackCode": "AdvancedTrigonometry"
+      }
+    ],
+    "rules": [], // TODO: sin(x) + cos(x) = 5/4
+    "stepsNumber": 0,
+    "time": 0,
+    "solution": "",
+    "solutionsStepsTree": {
+      "date": []
+    },
+    "hints": {
+      "data": []
+    }
+  },
+  {
+    "code": "40",
+    "version": 0,
+    "nameEn": "",
+    "nameRu": "",
+    "descriptionShortEn": "Prove the identity",
+    "descriptionShortRu": "Докажите тождество",
+    "descriptionEn": "Prove the identity",
+    "descriptionRu": "Докажите тождество",
+    "subjectType": "standard_math",
+    "tags": [
+      "trigonometry",
+      "short_multiplication"
+    ],
+    "originalExpressionStructureString": "(+(^(sin(+(/(*(9;pi);8);x));2);-(^(sin(+(/(*(17;pi);8);-(x)));2))))",
+    "goalType": "expression",
+    "goalExpressionStructureString": "(/(sin(*(2;x));^(2;0.5)))",
+    "goalPattern": "",
+    "rulePacks": [
+      {
+        "rulePackCode": "AdvancedTrigonometry"
+      }
+    ],
+    "rules": [],
+    "stepsNumber": 0,
+    "time": 0,
+    "solution": "",
+    "solutionsStepsTree": {
+      "date": []
+    },
+    "hints": {
+      "data": []
+    }
+  },
+  {
+    "code": "41",
+    "version": 0,
+    "nameEn": "",
+    "nameRu": "",
+    "descriptionShortEn": "Prove the identity",
+    "descriptionShortRu": "Докажите тождество",
+    "descriptionEn": "Prove the identity",
+    "descriptionRu": "Докажите тождество",
+    "subjectType": "standard_math",
+    "tags": [
+      "trigonometry",
+      "short_multiplication"
+    ],
+    "originalExpressionStructureString": "(/(+(3;-(*(4;cos(*(2;x))));cos(*(4;x)));+(3;*(4;cos(*(2;x)));cos(*(4;x)))))",
+    "goalType": "expression",
+    "goalExpressionStructureString": "(^(tg(x);4))",
+    "goalPattern": "",
+    "rulePacks": [
+      {
+        "rulePackCode": "AdvancedTrigonometry"
+      }
+    ],
+    "rules": [],
+    "stepsNumber": 0,
+    "time": 0,
+    "solution": "",
+    "solutionsStepsTree": {
+      "date": []
+    },
+    "hints": {
+      "data": []
+    }
+  },
+  {
+    "code": "42",
+    "version": 0,
+    "nameEn": "",
+    "nameRu": "",
+    "descriptionShortEn": "Compute",
+    "descriptionShortRu": "Вычислите",
+    "descriptionEn": "Compute",
+    "descriptionRu": "Вычислите",
+    "subjectType": "standard_math",
+    "tags": [
+      "trigonometry",
+      "short_multiplication"
+    ],
+    "originalExpressionStructureString": "(+(/(1;*(2;sin(o(10))));-(*(2;sin(o(70))))))",
+    "goalType": "???(compute)",
+    "goalExpressionStructureString": "(1)",
+    "goalPattern": "",
+    "rulePacks": [
+      {
+        "rulePackCode": "AdvancedTrigonometry"
+      }
+    ],
+    "rules": [],
+    "stepsNumber": 0,
+    "time": 0,
+    "solution": "",
+    "solutionsStepsTree": {
+      "date": []
+    },
+    "hints": {
+      "data": []
+    }
+  },
+  {
+    "code": "43",
+    "version": 0,
+    "nameEn": "",
+    "nameRu": "",
+    "descriptionShortEn": "Given tg(x) = 5, compute",
+    "descriptionShortRu": "Вычислите при tg(x) = 5",
+    "descriptionEn": "Given tg(x) = 5, compute",
+    "descriptionRu": "Вычислите при tg(x) = 5",
+    "subjectType": "standard_math",
+    "tags": [
+      "trigonometry",
+      "short_multiplication"
+    ],
+    "originalExpressionStructureString": "(/(+(*(3;sin(x));-(cos(x)));+(sin(x);*(2;cos(x)))))",
+    "goalType": "???(compute)", // TODO
+    "goalExpressionStructureString": "(2)",
+    "goalPattern": "",
+    "rulePacks": [
+      {
+        "rulePackCode": "AdvancedTrigonometry"
+      }
+    ],
+    "rules": [], // TODO: tg(x) = 5
+    "stepsNumber": 0,
+    "time": 0,
+    "solution": "",
+    "solutionsStepsTree": {
+      "date": []
+    },
+    "hints": {
+      "data": []
+    }
+  },
+  {
+    "code": "44",
+    "version": 0,
+    "nameEn": "",
+    "nameRu": "",
+    "descriptionShortEn": "Given ctg(x) = -2, compute",
+    "descriptionShortRu": "Вычислите при ctg(x) = -2",
+    "descriptionEn": "Given ctg(x) = -2, compute",
+    "descriptionRu": "Вычислите при ctg(x) = -2",
+    "subjectType": "standard_math",
+    "tags": [
+      "trigonometry",
+      "short_multiplication"
+    ],
+    "originalExpressionStructureString": "(/(+(*(2;^(cos(x);2));-(*(7;^(sin(x);2))));+(*(3;^(cos(x);2));*(4;sin(x);cos(x)))))",
+    "goalType": "???(compute)", // TODO
+    "goalExpressionStructureString": "(/(1;4))", // TODO: 0.25
+    "goalPattern": "",
+    "rulePacks": [
+      {
+        "rulePackCode": "AdvancedTrigonometry"
+      }
+    ],
+    "rules": [], // TODO: ctg(x) = -2
+    "stepsNumber": 0,
+    "time": 0,
+    "solution": "",
+    "solutionsStepsTree": {
+      "date": []
+    },
+    "hints": {
+      "data": []
+    }
+  },
+  {
+    "code": "45",
+    "version": 0,
+    "nameEn": "",
+    "nameRu": "",
+    "descriptionShortEn": "Given tg(x) = -4, compute",
+    "descriptionShortRu": "Вычислите при tg(x) = -4",
+    "descriptionEn": "Given tg(x) = -4, compute",
+    "descriptionRu": "Вычислите при tg(x) = -4",
+    "subjectType": "standard_math",
+    "tags": [
+      "trigonometry",
+      "short_multiplication"
+    ],
+    "originalExpressionStructureString": "(/(+(*(2;^(sin(x);3));*(3;^(cos(x);3)));+(*(5;sin(x));-(cos(x)))))",
+    "goalType": "???(compute)", // TODO
+    "goalExpressionStructureString": "(/(125;357))",
+    "goalPattern": "",
+    "rulePacks": [
+      {
+        "rulePackCode": "AdvancedTrigonometry"
+      }
+    ],
+    "rules": [], // TODO: tg(x) = -4
+    "stepsNumber": 0,
+    "time": 0,
+    "solution": "",
+    "solutionsStepsTree": {
+      "date": []
+    },
+    "hints": {
+      "data": []
+    }
+  },
+  {
+    "code": "46",
+    "version": 0,
+    "nameEn": "",
+    "nameRu": "",
+    "descriptionShortEn": "Simplify",
+    "descriptionShortRu": "Упростите",
+    "descriptionEn": "Simplify",
+    "descriptionRu": "Упростите",
+    "subjectType": "standard_math",
+    "tags": [
+      "trigonometry",
+      "short_multiplication"
+    ],
+    "originalExpressionStructureString": "(/(+(^(cos(+(*(4;x);-(*(3;pi))));2);-(*(4;^(cos(+(*(2;x);-(pi)));2)));3);+(^(cos(+(*(4;x);*(3;pi)));2);*(4;^(cos(+(*(2;x);pi));2));-(1))))",
+    "goalType": "???(simplify)", // TODO
+    "goalExpressionStructureString": "(^(tg(*(2;x));4))",
+    "goalPattern": "",
+    "rulePacks": [
+      {
+        "rulePackCode": "AdvancedTrigonometry"
+      }
+    ],
+    "rules": [],
+    "stepsNumber": 0,
+    "time": 0,
+    "solution": "",
+    "solutionsStepsTree": {
+      "date": []
+    },
+    "hints": {
+      "data": []
+    }
+  },
+  {
+    "code": "47",
+    "version": 0,
+    "nameEn": "",
+    "nameRu": "",
+    "descriptionShortEn": "Prove the identity",
+    "descriptionShortRu": "Докажите тождество",
+    "descriptionEn": "Prove the identity",
+    "descriptionRu": "Докажите тождество",
+    "subjectType": "standard_math",
+    "tags": [
+      "trigonometry",
+      "short_multiplication"
+    ],
+    "originalExpressionStructureString": "(/(+(1;*(2;sin(x);cos(x)));+(^(sin(x);2);-(^(cos(x);2)))))",
+    "goalType": "expression",
+    "goalExpressionStructureString": "(/(+(tg(x);1);+(tg(x);-(1))))",
+    "goalPattern": "",
+    "rulePacks": [
+      {
+        "rulePackCode": "AdvancedTrigonometry"
+      }
+    ],
+    "rules": [],
+    "stepsNumber": 0,
+    "time": 0,
+    "solution": "",
+    "solutionsStepsTree": {
+      "date": []
+    },
+    "hints": {
+      "data": []
+    }
+  },
+  {
+    "code": "48",
+    "version": 0,
+    "nameEn": "",
+    "nameRu": "",
+    "descriptionShortEn": "Prove the identity",
+    "descriptionShortRu": "Докажите тождество",
+    "descriptionEn": "Prove the identity",
+    "descriptionRu": "Докажите тождество",
+    "subjectType": "standard_math",
+    "tags": [
+      "trigonometry",
+      "short_multiplication"
+    ],
+    "originalExpressionStructureString": "(/(+(cos(x);cos(*(2;x));cos(*(3;x)));+(sin(x);sin(*(2;x));sin(*(3;x)))))",
+    "goalType": "expression",
+    "goalExpressionStructureString": "(ctg(*(2;x)))",
+    "goalPattern": "",
+    "rulePacks": [
+      {
+        "rulePackCode": "AdvancedTrigonometry"
+      }
+    ],
+    "rules": [],
+    "stepsNumber": 0,
+    "time": 0,
+    "solution": "",
+    "solutionsStepsTree": {
+      "date": []
+    },
+    "hints": {
+      "data": []
+    }
+  },
+  {
+    "code": "49",
+    "version": 0,
+    "nameEn": "",
+    "nameRu": "",
+    "descriptionShortEn": "Simplify",
+    "descriptionShortRu": "Упростите",
+    "descriptionEn": "Simplify",
+    "descriptionRu": "Упростите",
+    "subjectType": "standard_math",
+    "tags": [
+      "trigonometry",
+      "short_multiplication"
+    ],
+    "originalExpressionStructureString": "(+(^(tg(x);2);-(*(^(tg(x);2);^(sin(x);2)));-(^(sin(x);2))))",
+    "goalType": "???(simplify)", // TODO
+    "goalExpressionStructureString": "(0)",
+    "goalPattern": "",
+    "rulePacks": [
+      {
+        "rulePackCode": "AdvancedTrigonometry"
+      }
+    ],
+    "rules": [],
+    "stepsNumber": 0,
+    "time": 0,
+    "solution": "",
+    "solutionsStepsTree": {
+      "date": []
+    },
+    "hints": {
+      "data": []
+    }
+  },
+  {
+    "code": "50",
+    "version": 0,
+    "nameEn": "",
+    "nameRu": "",
+    "descriptionShortEn": "Compute",
+    "descriptionShortRu": "Вычислите",
+    "descriptionEn": "Compute",
+    "descriptionRu": "Вычислите",
+    "subjectType": "standard_math",
+    "tags": [
+      "trigonometry",
+      "short_multiplication"
+    ],
+    "originalExpressionStructureString": "(+(^(sin(15o);4);^(cos(15o);4)))", // TODO
+    "goalType": "???(compute)", // TODO
+    "goalExpressionStructureString": "(0.875)", // TODO
+    "goalPattern": "",
+    "rulePacks": [
+      {
+        "rulePackCode": "AdvancedTrigonometry"
+      }
+    ],
+    "rules": [],
+    "stepsNumber": 0,
+    "time": 0,
+    "solution": "",
+    "solutionsStepsTree": {
+      "date": []
+    },
+    "hints": {
+      "data": []
+    }
+  },
+  {
+    "code": "51",
+    "version": 0,
+    "nameEn": "",
+    "nameRu": "",
+    "descriptionShortEn": "Compute",
+    "descriptionShortRu": "Вычислите",
+    "descriptionEn": "Compute",
+    "descriptionRu": "Вычислите",
+    "subjectType": "standard_math",
+    "tags": [
+      "trigonometry",
+      "short_multiplication"
+    ],
+    "originalExpressionStructureString": "(+(^(tg(15o);2);^(ctg(15o);2)))", // TODO
+    "goalType": "???(compute)", // TODO
+    "goalExpressionStructureString": "(14)", // TODO
+    "goalPattern": "",
+    "rulePacks": [
+      {
+        "rulePackCode": "AdvancedTrigonometry"
+      }
+    ],
+    "rules": [],
+    "stepsNumber": 0,
+    "time": 0,
+    "solution": "",
+    "solutionsStepsTree": {
+      "date": []
+    },
+    "hints": {
+      "data": []
+    }
+  },
+  {
+    "code": "52",
+    "version": 0,
+    "nameEn": "",
+    "nameRu": "",
+    "descriptionShortEn": "Simplify",
+    "descriptionShortRu": "Упростите",
+    "descriptionEn": "Simplify",
+    "descriptionRu": "Упростите",
+    "subjectType": "standard_math",
+    "tags": [
+      "trigonometry",
+      "short_multiplication"
+    ],
+    "originalExpressionStructureString": "(/(+(cos(*(4;x));1);+(ctg(x);-(tg(x)))))",
+    "goalType": "???(simplify)", // TODO
+    "goalExpressionStructureString": "(/(sin(*(4;x));2))", // TODO: options
+    "goalPattern": "",
+    "rulePacks": [
+      {
+        "rulePackCode": "AdvancedTrigonometry"
+      }
+    ],
+    "rules": [],
+    "stepsNumber": 0,
+    "time": 0,
+    "solution": "",
+    "solutionsStepsTree": {
+      "date": []
+    },
+    "hints": {
+      "data": []
+    }
+  },
+  {
+    "code": "53",
+    "version": 0,
+    "nameEn": "",
+    "nameRu": "",
+    "descriptionShortEn": "Compute",
+    "descriptionShortRu": "Вычислите",
+    "descriptionEn": "Compute",
+    "descriptionRu": "Вычислите",
+    "subjectType": "standard_math",
+    "tags": [
+      "trigonometry",
+      "short_multiplication"
+    ],
+    "originalExpressionStructureString": "(cos(75o))", // TODO
+    "goalType": "???(compute)", // TODO
+    "goalExpressionStructureString": "(/(+(^(6;0.5);-(^(2;0.5)));4))", // TODO: options
+    "goalPattern": "",
+    "rulePacks": [
+      {
+        "rulePackCode": "AdvancedTrigonometry"
+      }
+    ],
+    "rules": [],
+    "stepsNumber": 0,
+    "time": 0,
+    "solution": "",
+    "solutionsStepsTree": {
+      "date": []
+    },
+    "hints": {
+      "data": []
+    }
+  },
+  {
+    "code": "54",
+    "version": 0,
+    "nameEn": "",
+    "nameRu": "",
+    "descriptionShortEn": "Simplify",
+    "descriptionShortRu": "Упростите",
+    "descriptionEn": "Simplify",
+    "descriptionRu": "Упростите",
+    "subjectType": "standard_math",
+    "tags": [
+      "trigonometry",
+      "short_multiplication"
+    ],
+    "originalExpressionStructureString": "(*(/(+(1;-(^(tg(+(-(x)));2)));+(^(tg(+(x;-(/(pi;2))));2);-(1)));/(tg(+(/(*(3;pi);2);-(x)));tg(+(pi;x)))))",
+    "goalType": "???(simplify)", // TODO
+    "goalExpressionStructureString": "(1)",
+    "goalPattern": "",
+    "rulePacks": [
+      {
+        "rulePackCode": "AdvancedTrigonometry"
+      }
+    ],
+    "rules": [],
+    "stepsNumber": 0,
+    "time": 0,
+    "solution": "",
+    "solutionsStepsTree": {
+      "date": []
+    },
+    "hints": {
+      "data": []
+    }
+  },
+  {
+    "code": "55",
+    "version": 0,
+    "nameEn": "",
+    "nameRu": "",
+    "descriptionShortEn": "Prove the identity",
+    "descriptionShortRu": "Докажите тождество",
+    "descriptionEn": "Prove the identity",
+    "descriptionRu": "Докажите тождество",
+    "subjectType": "standard_math",
+    "tags": [
+      "trigonometry",
+      "short_multiplication"
+    ],
+    "originalExpressionStructureString": "(/(+(1;-(*(2;^(cos(x);2))));*(sin(x);cos(x))))",
+    "goalType": "expression",
+    "goalExpressionStructureString": "(+(tg(x);-(ctg(x))))",
+    "goalPattern": "",
+    "rulePacks": [
+      {
+        "rulePackCode": "AdvancedTrigonometry"
+      }
+    ],
+    "rules": [],
+    "stepsNumber": 0,
+    "time": 0,
+    "solution": "",
+    "solutionsStepsTree": {
+      "date": []
+    },
+    "hints": {
+      "data": []
+    }
+  },
+  {
+    "code": "56",
+    "version": 0,
+    "nameEn": "",
+    "nameRu": "",
+    "descriptionShortEn": "Prove the identity",
+    "descriptionShortRu": "Докажите тождество",
+    "descriptionEn": "Prove the identity",
+    "descriptionRu": "Докажите тождество",
+    "subjectType": "standard_math",
+    "tags": [
+      "trigonometry",
+      "short_multiplication"
+    ],
+    "originalExpressionStructureString": "(*(4;cos(+(/(pi;6);-(x)));sin(+(/(pi;3);-(x)))))",
+    "goalType": "expression",
+    "goalExpressionStructureString": "(/(sin(*(3;x));sin(x)))",
+    "goalPattern": "",
+    "rulePacks": [
+      {
+        "rulePackCode": "AdvancedTrigonometry"
+      }
+    ],
+    "rules": [],
+    "stepsNumber": 0,
+    "time": 0,
+    "solution": "",
+    "solutionsStepsTree": {
+      "date": []
+    },
+    "hints": {
+      "data": []
+    }
+  },
+  {
+    "code": "57",
+    "version": 0,
+    "nameEn": "",
+    "nameRu": "",
+    "descriptionShortEn": "Simplify",
+    "descriptionShortRu": "Упростите",
+    "descriptionEn": "Simplify",
+    "descriptionRu": "Упростите",
+    "subjectType": "standard_math",
+    "tags": [
+      "trigonometry",
+      "short_multiplication"
+    ],
+    "originalExpressionStructureString": "(+(*(tg(x);tg(y));*(+(tg(x);tg(y));ctg(+(x;y)))))",
+    "goalType": "???(simplify)", // TODO
+    "goalExpressionStructureString": "(1)",
+    "goalPattern": "",
+    "rulePacks": [
+      {
+        "rulePackCode": "AdvancedTrigonometry"
+      }
+    ],
+    "rules": [],
+    "stepsNumber": 0,
+    "time": 0,
+    "solution": "",
+    "solutionsStepsTree": {
+      "date": []
+    },
+    "hints": {
+      "data": []
+    }
+  },
+  {
+    "code": "58",
+    "version": 0,
+    "nameEn": "",
+    "nameRu": "",
+    "descriptionShortEn": "Simplify",
+    "descriptionShortRu": "Упростите",
+    "descriptionEn": "Simplify",
+    "descriptionRu": "Упростите",
+    "subjectType": "standard_math",
+    "tags": [
+      "trigonometry",
+      "short_multiplication"
+    ],
+    "originalExpressionStructureString": "(*(tg(*(2;x));/(+(1;-(^(tg(x);2)));*(4;sin(/(x;2));cos(/(x;2))))))",
+    "goalType": "???(simplify)", // TODO
+    "goalExpressionStructureString": "()", // TODO: ??? ;)
+    "goalPattern": "",
+    "rulePacks": [
+      {
+        "rulePackCode": "AdvancedTrigonometry"
+      }
+    ],
+    "rules": [],
+    "stepsNumber": 0,
+    "time": 0,
+    "solution": "",
+    "solutionsStepsTree": {
+      "date": []
+    },
+    "hints": {
+      "data": []
+    }
+  },
+  {
+    "code": "59",
+    "version": 0,
+    "nameEn": "",
+    "nameRu": "",
+    "descriptionShortEn": "Simplify",
+    "descriptionShortRu": "Упростите",
+    "descriptionEn": "Simplify",
+    "descriptionRu": "Упростите",
+    "subjectType": "standard_math",
+    "tags": [
+      "trigonometry",
+      "short_multiplication"
+    ],
+    "originalExpressionStructureString": "(/(*(4;cos(x));+(^(ctg(/(x;2));2);-(^(tg(/(x;2));2)))))",
+    "goalType": "???(simplify)", // TODO
+    "goalExpressionStructureString": "(^(sin(x);2))",
+    "goalPattern": "",
+    "rulePacks": [
+      {
+        "rulePackCode": "AdvancedTrigonometry"
+      }
+    ],
+    "rules": [],
+    "stepsNumber": 0,
+    "time": 0,
+    "solution": "",
+    "solutionsStepsTree": {
+      "date": []
+    },
+    "hints": {
+      "data": []
+    }
+  },
+  {
+    "code": "60",
+    "version": 0,
+    "nameEn": "",
+    "nameRu": "",
+    "descriptionShortEn": "Simplify",
+    "descriptionShortRu": "Упростите",
+    "descriptionEn": "Simplify",
+    "descriptionRu": "Упростите",
+    "subjectType": "standard_math",
+    "tags": [
+      "trigonometry",
+      "short_multiplication"
+    ],
+    "originalExpressionStructureString": "(+(/(+(cos(x);cos(*(3;x)));sin(*(2;x)));/(+(sin(x);sin(*(3;x)));+(1;cos(*(2;x))))))",
+    "goalType": "???(simplify)", // TODO
+    "goalExpressionStructureString": "(/(1;sin(x)))",
+    "goalPattern": "",
+    "rulePacks": [
+      {
+        "rulePackCode": "AdvancedTrigonometry"
+      }
+    ],
+    "rules": [],
+    "stepsNumber": 0,
+    "time": 0,
+    "solution": "",
+    "solutionsStepsTree": {
+      "date": []
+    },
+    "hints": {
+      "data": []
+    }
+  },
+  {
+    "code": "61",
+    "version": 0,
+    "nameEn": "",
+    "nameRu": "",
+    "descriptionShortEn": "Compute",
+    "descriptionShortRu": "Вычислите",
+    "descriptionEn": "Compute",
+    "descriptionRu": "Вычислите",
+    "subjectType": "standard_math",
+    "tags": [
+      "Logarithm"
+    ], // TODO
+    "originalExpressionStructureString": "(+(-(log(2;log(2;^(^(2;/(1;8));0.5))))))",
+    "goalType": "???(compute)", // TODO
+    "goalExpressionStructureString": "(4)",
+    "goalPattern": "",
+    "rulePacks": [
+      {
+        "rulePackCode": "Logarithm" // TODO
+      }
+    ],
+    "rules": [],
+    "stepsNumber": 0,
+    "time": 0,
+    "solution": "",
+    "solutionsStepsTree": {
+      "date": []
+    },
+    "hints": {
+      "data": []
+    }
+  },
+  {
+    "code": "62",
+    "version": 0,
+    "nameEn": "",
+    "nameRu": "",
+    "descriptionShortEn": "Compute",
+    "descriptionShortRu": "Вычислите",
+    "descriptionEn": "Compute",
+    "descriptionRu": "Вычислите",
+    "subjectType": "standard_math",
+    "tags": [
+      "Logarithm"
+    ], // TODO
+    "originalExpressionStructureString": "(/(+(*(2;log(7;6));-(log(7;3)));log(7;144)))",
+    "goalType": "???(compute)", // TODO
+    "goalExpressionStructureString": "(/(1;2))", // TODO: options
+    "goalPattern": "",
+    "rulePacks": [
+      {
+        "rulePackCode": "Logarithm" // TODO
+      }
+    ],
+    "rules": [],
+    "stepsNumber": 0,
+    "time": 0,
+    "solution": "",
+    "solutionsStepsTree": {
+      "date": []
+    },
+    "hints": {
+      "data": []
+    }
+  },
+  {
+    "code": "63",
+    "version": 0,
+    "nameEn": "",
+    "nameRu": "",
+    "descriptionShortEn": "Compute",
+    "descriptionShortRu": "Вычислите",
+    "descriptionEn": "Compute",
+    "descriptionRu": "Вычислите",
+    "subjectType": "standard_math",
+    "tags": [
+      "Logarithm"
+    ], // TODO
+    "originalExpressionStructureString": "(+(log(/(1;^(2;0.5));^(16;/(1;3)));-(log(/(1;^(3;0.5));^(9;/(1;3))));/(1;3)))",
+    "goalType": "???(compute)", // TODO
+    "goalExpressionStructureString": "(+(-(1)))",
+    "goalPattern": "",
+    "rulePacks": [
+      {
+        "rulePackCode": "Logarithm" // TODO
+      }
+    ],
+    "rules": [],
+    "stepsNumber": 0,
+    "time": 0,
+    "solution": "",
+    "solutionsStepsTree": {
+      "date": []
+    },
+    "hints": {
+      "data": []
+    }
+  },
+  {
+    "code": "64",
+    "version": 0,
+    "nameEn": "",
+    "nameRu": "",
+    "descriptionShortEn": "Compute",
+    "descriptionShortRu": "Вычислите",
+    "descriptionEn": "Compute",
+    "descriptionRu": "Вычислите",
+    "subjectType": "standard_math",
+    "tags": [
+      "Logarithm"
+    ], // TODO
+    "originalExpressionStructureString": "(^(5;+(*(2;log(25;8));log(/(1;5);5))))",
+    "goalType": "???(compute)", // TODO
+    "goalExpressionStructureString": "(1.6)", // TODO: options?
+    "goalPattern": "",
+    "rulePacks": [
+      {
+        "rulePackCode": "Logarithm" // TODO
+      }
+    ],
+    "rules": [],
+    "stepsNumber": 0,
+    "time": 0,
+    "solution": "",
+    "solutionsStepsTree": {
+      "date": []
+    },
+    "hints": {
+      "data": []
+    }
+  },
+  {
+    "code": "65",
+    "version": 0,
+    "nameEn": "",
+    "nameRu": "",
+    "descriptionShortEn": "Compute",
+    "descriptionShortRu": "Вычислите",
+    "descriptionEn": "Compute",
+    "descriptionRu": "Вычислите",
+    "subjectType": "standard_math",
+    "tags": [
+      "Logarithm"
+    ], // TODO
+    "originalExpressionStructureString": "(+(log(^(3;/(1;3));9);-(log(^(2;/(1;3));/(1;4)))))",
+    "goalType": "???(compute)", // TODO
+    "goalExpressionStructureString": "(12)",
+    "goalPattern": "",
+    "rulePacks": [
+      {
+        "rulePackCode": "Logarithm" // TODO
+      }
+    ],
+    "rules": [],
+    "stepsNumber": 0,
+    "time": 0,
+    "solution": "",
+    "solutionsStepsTree": {
+      "date": []
+    },
+    "hints": {
+      "data": []
+    }
+  },
+  {
+    "code": "66",
+    "version": 0,
+    "nameEn": "",
+    "nameRu": "",
+    "descriptionShortEn": "Compute",
+    "descriptionShortRu": "Вычислите",
+    "descriptionEn": "Compute",
+    "descriptionRu": "Вычислите",
+    "subjectType": "standard_math",
+    "tags": [
+      "Logarithm"
+    ], // TODO
+    "originalExpressionStructureString": "(+(^(25;*(/(1;2);log(5;12)));^(7;*(2;log(7;2)))))",
+    "goalType": "???(compute)", // TODO
+    "goalExpressionStructureString": "(16)",
+    "goalPattern": "",
+    "rulePacks": [
+      {
+        "rulePackCode": "Logarithm" // TODO
+      }
+    ],
+    "rules": [],
+    "stepsNumber": 0,
+    "time": 0,
+    "solution": "",
+    "solutionsStepsTree": {
+      "date": []
+    },
+    "hints": {
+      "data": []
+    }
+  },
+  {
+    "code": "67",
+    "version": 0,
+    "nameEn": "",
+    "nameRu": "",
+    "descriptionShortEn": "Compute",
+    "descriptionShortRu": "Вычислите",
+    "descriptionEn": "Compute",
+    "descriptionRu": "Вычислите",
+    "subjectType": "standard_math",
+    "tags": [
+      "Logarithm"
+    ], // TODO
+    "originalExpressionStructureString": "(+(log(0.6;log(8;32));^(49;log(^(7;0.5);^(2;0.5)))))",
+    "goalType": "???(compute)", // TODO
+    "goalExpressionStructureString": "(3)",
+    "goalPattern": "",
+    "rulePacks": [
+      {
+        "rulePackCode": "Logarithm" // TODO
+      }
+    ],
+    "rules": [],
+    "stepsNumber": 0,
+    "time": 0,
+    "solution": "",
+    "solutionsStepsTree": {
+      "date": []
+    },
+    "hints": {
+      "data": []
+    }
+  },
+  {
+    "code": "68",
+    "version": 0,
+    "nameEn": "",
+    "nameRu": "",
+    "descriptionShortEn": "Compute",
+    "descriptionShortRu": "Вычислите",
+    "descriptionEn": "Compute",
+    "descriptionRu": "Вычислите",
+    "subjectType": "standard_math",
+    "tags": [
+      "Logarithm"
+    ], // TODO
+    "originalExpressionStructureString": "(/(+(log(10;900);-(2));+(*(2;log(10;0.5));log(10;12))))",
+    "goalType": "???(compute)", // TODO
+    "goalExpressionStructureString": "(2)",
+    "goalPattern": "",
+    "rulePacks": [
+      {
+        "rulePackCode": "Logarithm" // TODO
+      }
+    ],
+    "rules": [],
+    "stepsNumber": 0,
+    "time": 0,
+    "solution": "",
+    "solutionsStepsTree": {
+      "date": []
+    },
+    "hints": {
+      "data": []
+    }
+  },
+  {
+    "code": "69",
+    "version": 0,
+    "nameEn": "",
+    "nameRu": "",
+    "descriptionShortEn": "Compute",
+    "descriptionShortRu": "Вычислите",
+    "descriptionEn": "Compute",
+    "descriptionRu": "Вычислите",
+    "subjectType": "standard_math",
+    "tags": [
+      "Logarithm"
+    ], // TODO
+    "originalExpressionStructureString": "(log(^(3;0.5);*(log(27;2);log(2;3))))",
+    "goalType": "???(compute)", // TODO
+    "goalExpressionStructureString": "(+(-(2)))",
+    "goalPattern": "",
+    "rulePacks": [
+      {
+        "rulePackCode": "Logarithm" // TODO
+      }
+    ],
+    "rules": [],
+    "stepsNumber": 0,
+    "time": 0,
+    "solution": "",
+    "solutionsStepsTree": {
+      "date": []
+    },
+    "hints": {
+      "data": []
+    }
+  },
+  {
+    "code": "70",
+    "version": 0,
+    "nameEn": "",
+    "nameRu": "",
+    "descriptionShortEn": "Given log(a, b) = 7, compute",
+    "descriptionShortRu": "Вычислите при log(a, b) = 7",
+    "descriptionEn": "Given log(a, b) = 7, compute",
+    "descriptionRu": "Вычислите при log(a, b) = 7",
+    "subjectType": "standard_math",
+    "tags": [
+      "Logarithm"
+    ], // TODO
+    "originalExpressionStructureString": "(log(a;/(^(a;3);^(b;5))))",
+    "goalType": "???(compute)", // TODO
+    "goalExpressionStructureString": "(+(-(32)))",
+    "goalPattern": "",
+    "rulePacks": [
+      {
+        "rulePackCode": "Logarithm" // TODO
+      }
+    ],
+    "rules": ["???"], // TODO: log(a, b) = 7
+    "stepsNumber": 0,
+    "time": 0,
+    "solution": "",
+    "solutionsStepsTree": {
+      "date": []
+    },
+    "hints": {
+      "data": []
+    }
+  },
+  {
+    "code": "71",
+    "version": 0,
+    "nameEn": "",
+    "nameRu": "",
+    "descriptionShortEn": "Given log(b, a) = 2 / 11, compute",
+    "descriptionShortRu": "Вычислите при log(b, a) = 2 / 11",
+    "descriptionEn": "Given log(b, a) = 2 / 11, compute",
+    "descriptionRu": "Вычислите при log(b, a) = 2 / 11",
+    "subjectType": "standard_math",
+    "tags": [
+      "Logarithm"
+    ], // TODO
+    "originalExpressionStructureString": "(log(a;*(a;^(b;6))))",
+    "goalType": "???(compute)", // TODO
+    "goalExpressionStructureString": "(34)",
+    "goalPattern": "",
+    "rulePacks": [
+      {
+        "rulePackCode": "Logarithm" // TODO
+      }
+    ],
+    "rules": ["???"], // TODO: log(b, a) = 2 / 11
+    "stepsNumber": 0,
+    "time": 0,
+    "solution": "",
+    "solutionsStepsTree": {
+      "date": []
+    },
+    "hints": {
+      "data": []
+    }
+  }
+]

@@ -11,6 +11,7 @@
   "textSize": 100,
   "fonts": {
     "main": "WebFont",
-    "expr": "WebFont"
+    "expr": "monospace",
+    "unicode": "u2000"
   }
 }

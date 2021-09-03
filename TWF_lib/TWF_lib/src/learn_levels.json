@@ -1,27 +1,782 @@
 {
-  "levels": [
+  "code": "global_test__TrigonometryShortMultiplication",
+  "version": 0,
+  "namespaceCode": "global_test",
+  "subjectType": "standard_math",
+  "tasks": [
     {
-      "code": 1,
-      "nameEn": "Periodicity",
-      "nameRu": "Периодичность",
-      "descriptionRu": "Период косинуса равен 2π: сos(α + 2πn) = cos(α),\nПериод синуса равен 2π: sin(α + 2πn) = sin(α),\nПериод тангенса равен π: tg(α + πn) = tg(α),\nПериод котангенса равен π: ctg(α + πn) = ctg(α).",
-      "tasks": [
+      "code": "global_test__TrigonometryShortMultiplication__0_Proof",
+      "version": 0,
+      "namespaceCode": "global_test",
+      "nameEn": "Level 0 Proof",
+      "nameRu": "Уровень 0 Доказательство",
+      "descriptionShortEn": "Relate to",
+      "descriptionShortRu": "Свести к",
+      "descriptionEn": "Prove '(sin(x)-cos(x))^2 = 1-sin(2*x)'",
+      "descriptionRu": "Доказать '(sin(x)-cos(x))^2 = 1-sin(2*x)'",
+      "subjectType": "standard_math",
+      "tags": [
+        "shortMultiplication",
+        "trigonometryAngleSum",
+        "sqrDiff",
+        "pythagoreanIdentity",
+        "proof",
+        "^",
+        "sin",
+        "cos",
+        "trigonometry"
+      ],
+      "originalExpressionStructureString": "(^(+(sin(x);-(cos(x)));2))",
+      "goalType": "expression",
+      "goalExpressionStructureString": "(+(1;-(sin(*(2;x)))))",
+      "rulePacks": [
         {
-          "taskCreationType": "manual",
-          "code": 1,
-          "descriptionRu": "Приведите тригонометрическую функцию произвольного угла к тригонометрической функции острого угла",
-          "originalExpressionStructureString": "+(2;2)",
-          "goalType": "CUSTOM",
-          "goalExpressionStructureString": "(4)"
-        }, {
-          "taskCreationType": "manual",
-          "code": 2,
-          "descriptionRu": "Приведите тригонометрическую функцию произвольного угла к тригонометрической функции острого угла",
-          "originalExpressionStructureString": "ctg(+(-(/(*(7;π);4))))",
-          "goalType": "CUSTOM",
-          "goalExpressionStructureString": "ctg(/(π;4))"
+          "namespaceCode": "global_test",
+          "rulePackCode": "global_test__AdvancedTrigonometry"
         }
-      ]
+      ],
+      "difficulty": 1.5
+    },
+    {
+      "code": "global_test__TrigonometryShortMultiplication__1_Proof",
+      "version": 0,
+      "namespaceCode": "global_test",
+      "nameEn": "Level 1 Proof",
+      "nameRu": "Уровень 1 Доказательство",
+      "descriptionShortEn": "Relate to",
+      "descriptionShortRu": "Свести к",
+      "descriptionEn": "Prove 'tg(x)^2+ctg(x)^2 = (tg(x)+ctg(x))^2-2'",
+      "descriptionRu": "Доказать 'tg(x)^2+ctg(x)^2 = (tg(x)+ctg(x))^2-2'",
+      "subjectType": "standard_math",
+      "tags": [
+        "shortMultiplication",
+        "sqrSum",
+        "trick",
+        "proof",
+        "^",
+        "tg",
+        "ctg",
+        "trigonometry"
+      ],
+      "originalExpressionStructureString": "(+(^(tg(x);2);^(ctg(x);2)))",
+      "goalType": "expression",
+      "goalExpressionStructureString": "(+(^(+(tg(x);ctg(x));2);-(2)))",
+      "rulePacks": [
+        {
+          "namespaceCode": "global_test",
+          "rulePackCode": "global_test__AdvancedTrigonometry"
+        }
+      ],
+      "difficulty": 2.5
+    },
+    {
+      "code": "global_test__TrigonometryShortMultiplication__2_Computation",
+      "version": 0,
+      "namespaceCode": "global_test",
+      "nameEn": "Level 2 Computation",
+      "nameRu": "Уровень 2 Вычисление",
+      "descriptionShortEn": "Compute if 'ctg(x) = 2'",
+      "descriptionShortRu": "Вычислить если 'ctg(x) = 2'",
+      "descriptionEn": "Compute '((2+2*sin(x))*(1-sin(x)))/((1+cos(x))*(2-2*cos(x)))' if 'ctg(x) = 2'",
+      "descriptionRu": "Вычислить '((2+2*sin(x))*(1-sin(x)))/((1+cos(x))*(2-2*cos(x)))', если 'ctg(x) = 2'",
+      "subjectType": "standard_math",
+      "tags": [
+        "shortMultiplication",
+        "fraction",
+        "diffSqrs",
+        "computation",
+        "sin",
+        "cos",
+        "trigonometry"
+      ],
+      "originalExpressionStructureString": "(/(*(+(2;*(2;sin(x)));+(1;-(sin(x))));*(+(1;cos(x));+(2;-(*(2;cos(x)))))))",
+      "goalType": "computation",
+      "goalPattern": "+:0-1(-:1):?:?R",
+      "rulePacks": [
+        {
+          "namespaceCode": "global_test",
+          "rulePackCode": "global_test__AdvancedTrigonometry"
+        }
+      ],
+      "rules": [
+        {
+          "code": "(ctg(x))__to__(2)",
+          "leftStructureString": "(ctg(x))",
+          "rightStructureString": "(2)",
+          "priority": 2,
+          "isExtending": false,
+          "matchJumbledAndNested": false,
+          "simpleAdditional": false,
+          "basedOnTaskContext": true,
+          "normalizationType": "ORIGINAL"
+        }
+      ],
+      "difficulty": 4.2,
+      "comment": "1 vlad_u"
+    },
+    {
+      "code": "global_test__TrigonometryShortMultiplication__3_Proof",
+      "version": 0,
+      "namespaceCode": "global_test",
+      "nameEn": "Level 3 Proof",
+      "nameRu": "Уровень 3 Доказательство",
+      "descriptionShortEn": "Relate to",
+      "descriptionShortRu": "Свести к",
+      "descriptionEn": "Prove '(1-sin(x)^4)/cos(x)^2 = 2-cos(x)^2'",
+      "descriptionRu": "Доказать '(1-sin(x)^4)/cos(x)^2 = 2-cos(x)^2'",
+      "subjectType": "standard_math",
+      "tags": [
+        "shortMultiplication",
+        "fraction",
+        "diffSqrs",
+        "pythagoreanIdentity",
+        "proof",
+        "^",
+        "sin",
+        "cos",
+        "trigonometry"
+      ],
+      "originalExpressionStructureString": "(/(+(1;-(^(sin(x);4)));^(cos(x);2)))",
+      "goalType": "expression",
+      "goalExpressionStructureString": "(+(2;-(^(cos(x);2))))",
+      "rulePacks": [
+        {
+          "namespaceCode": "global_test",
+          "rulePackCode": "global_test__AdvancedTrigonometry"
+        }
+      ],
+      "difficulty": 4.2,
+      "comment": "8 vlad_u"
+    },
+    {
+      "code": "global_test__TrigonometryShortMultiplication__4_Proof",
+      "version": 0,
+      "namespaceCode": "global_test",
+      "nameEn": "Level 4 Proof",
+      "nameRu": "Уровень 4 Доказательство",
+      "descriptionShortEn": "Relate to",
+      "descriptionShortRu": "Свести к",
+      "descriptionEn": "Prove 'sin(x)^4+2*cos(x)*sin(x)^2+cos(x)^2 = (sin(x)+ctg(x))^2*sin(x)^2'",
+      "descriptionRu": "Доказать 'sin(x)^4+2*cos(x)*sin(x)^2+cos(x)^2 = (sin(x)+ctg(x))^2*sin(x)^2'",
+      "subjectType": "standard_math",
+      "tags": [
+        "shortMultiplication",
+        "sqrSum",
+        "trick",
+        "proof",
+        "^",
+        "sin",
+        "cos",
+        "ctg",
+        "trigonometry"
+      ],
+      "originalExpressionStructureString": "(+(^(sin(x);4);*(2;cos(x);^(sin(x);2));^(cos(x);2)))",
+      "goalType": "expression",
+      "goalExpressionStructureString": "(*(^(+(sin(x);ctg(x));2);^(sin(x);2)))",
+      "rulePacks": [
+        {
+          "namespaceCode": "global_test",
+          "rulePackCode": "global_test__AdvancedTrigonometry"
+        }
+      ],
+      "difficulty": 2.5
+    },
+    {
+      "code": "global_test__TrigonometryShortMultiplication__5_Proof",
+      "version": 0,
+      "namespaceCode": "global_test",
+      "nameEn": "Level 5 Proof",
+      "nameRu": "Уровень 5 Доказательство",
+      "descriptionShortEn": "Relate to",
+      "descriptionShortRu": "Свести к",
+      "descriptionEn": "Prove 'cos(4*x)+4*cos(2*x)+3 = 8*cos(x)^4'",
+      "descriptionRu": "Доказать 'cos(4*x)+4*cos(2*x)+3 = 8*cos(x)^4'",
+      "subjectType": "standard_math",
+      "tags": [
+        "shortMultiplication",
+        "sqrSum",
+        "trigonometryAngleSum",
+        "proof",
+        "cos",
+        "^",
+        "trigonometry"
+      ],
+      "originalExpressionStructureString": "(+(cos(*(4;x));*(4;cos(*(2;x)));3))",
+      "goalType": "expression",
+      "goalExpressionStructureString": "(*(8;^(cos(x);4)))",
+      "rulePacks": [
+        {
+          "namespaceCode": "global_test",
+          "rulePackCode": "global_test__AdvancedTrigonometry"
+        }
+      ],
+      "difficulty": 4.2,
+      "comment": "12 vlad_u"
+    },
+    {
+      "code": "global_test__TrigonometryShortMultiplication__6_Proof",
+      "version": 0,
+      "namespaceCode": "global_test",
+      "nameEn": "Level 6 Proof",
+      "nameRu": "Уровень 6 Доказательство",
+      "descriptionShortEn": "Relate to",
+      "descriptionShortRu": "Свести к",
+      "descriptionEn": "Prove 'sin(x)/(1+cos(x))+(1+cos(x))/sin(x) = 2/sin(x)'",
+      "descriptionRu": "Доказать 'sin(x)/(1+cos(x))+(1+cos(x))/sin(x) = 2/sin(x)'",
+      "subjectType": "standard_math",
+      "tags": [
+        "shortMultiplication",
+        "fraction",
+        "sqrSum",
+        "pythagoreanIdentity",
+        "proof",
+        "sin",
+        "cos",
+        "trigonometry"
+      ],
+      "originalExpressionStructureString": "(+(/(sin(x);+(1;cos(x)));/(+(1;cos(x));sin(x))))",
+      "goalType": "expression",
+      "goalExpressionStructureString": "(/(2;sin(x)))",
+      "rulePacks": [
+        {
+          "namespaceCode": "global_test",
+          "rulePackCode": "global_test__AdvancedTrigonometry"
+        }
+      ],
+      "difficulty": 4.3,
+      "comment": "9 vlad_u"
+    },
+    {
+      "code": "global_test__TrigonometryShortMultiplication__7_Proof",
+      "version": 0,
+      "namespaceCode": "global_test",
+      "nameEn": "Level 7 Proof",
+      "nameRu": "Уровень 7 Доказательство",
+      "descriptionShortEn": "Relate to",
+      "descriptionShortRu": "Свести к",
+      "descriptionEn": "Prove '(cos(x)^3-sin(x)^3)/(cos(x)-sin(x)) = 1+sin(x)*cos(x)'",
+      "descriptionRu": "Доказать '(cos(x)^3-sin(x)^3)/(cos(x)-sin(x)) = 1+sin(x)*cos(x)'",
+      "subjectType": "standard_math",
+      "tags": [
+        "shortMultiplication",
+        "fraction",
+        "cubeDiff",
+        "proof",
+        "^",
+        "cos",
+        "sin",
+        "trigonometry"
+      ],
+      "originalExpressionStructureString": "(/(+(^(cos(x);3);-(^(sin(x);3)));+(cos(x);-(sin(x)))))",
+      "goalType": "expression",
+      "goalExpressionStructureString": "(+(1;*(sin(x);cos(x))))",
+      "rulePacks": [
+        {
+          "namespaceCode": "global_test",
+          "rulePackCode": "global_test__AdvancedTrigonometry"
+        }
+      ],
+      "difficulty": 4.4,
+      "comment": "3 vlad_u"
+    },
+    {
+      "code": "global_test__TrigonometryShortMultiplication__8_Proof",
+      "version": 0,
+      "namespaceCode": "global_test",
+      "nameEn": "Level 8 Proof",
+      "nameRu": "Уровень 8 Доказательство",
+      "descriptionShortEn": "Relate to",
+      "descriptionShortRu": "Свести к",
+      "descriptionEn": "Prove '(sin(x)^3+cos(x)^3)/(sin(x)+cos(x)) = 1-sin(2*x)/2'",
+      "descriptionRu": "Доказать '(sin(x)^3+cos(x)^3)/(sin(x)+cos(x)) = 1-sin(2*x)/2'",
+      "subjectType": "standard_math",
+      "tags": [
+        "shortMultiplication",
+        "fraction",
+        "cubeSum",
+        "proof",
+        "^",
+        "sin",
+        "cos",
+        "trigonometry"
+      ],
+      "originalExpressionStructureString": "(/(+(^(sin(x);3);^(cos(x);3));+(sin(x);cos(x))))",
+      "goalType": "expression",
+      "goalExpressionStructureString": "(+(1;-(/(sin(*(2;x));2))))",
+      "rulePacks": [
+        {
+          "namespaceCode": "global_test",
+          "rulePackCode": "global_test__AdvancedTrigonometry"
+        }
+      ],
+      "difficulty": 4.5,
+      "comment": "4 vlad_u"
+    },
+    {
+      "code": "global_test__TrigonometryShortMultiplication__9_Proof",
+      "version": 0,
+      "namespaceCode": "global_test",
+      "nameEn": "Level 9 Proof",
+      "nameRu": "Уровень 9 Доказательство",
+      "descriptionShortEn": "Relate to",
+      "descriptionShortRu": "Свести к",
+      "descriptionEn": "Prove '(tg(x)+ctg(x))*(4/sin(2*x)^2-3) = tg(x)^3+ctg(x)^3'",
+      "descriptionRu": "Доказать '(tg(x)+ctg(x))*(4/sin(2*x)^2-3) = tg(x)^3+ctg(x)^3'",
+      "subjectType": "standard_math",
+      "tags": [
+        "shortMultiplication",
+        "sumCubes",
+        "trick",
+        "pythagoreanIdentity",
+        "trigonometryAngleSum",
+        "proof",
+        "tg",
+        "ctg",
+        "^",
+        "sin",
+        "trigonometry"
+      ],
+      "originalExpressionStructureString": "(*(+(tg(x);ctg(x));+(/(4;^(sin(*(2;x));2));-(3))))",
+      "goalType": "expression",
+      "goalExpressionStructureString": "(+(^(tg(x);3);^(ctg(x);3)))",
+      "rulePacks": [
+        {
+          "namespaceCode": "global_test",
+          "rulePackCode": "global_test__AdvancedTrigonometry"
+        }
+      ],
+      "difficulty": 5.5
+    },
+    {
+      "code": "global_test__TrigonometryShortMultiplication__10_Simplification",
+      "version": 0,
+      "namespaceCode": "global_test",
+      "nameEn": "Level 10 Simplification",
+      "nameRu": "Уровень 10 Упрощение",
+      "descriptionShortEn": "Simplify",
+      "descriptionShortRu": "Упростить",
+      "descriptionEn": "Simplify '(sin(x)-cos(x))^2+sin(2*x)'",
+      "descriptionRu": "Упростить '(sin(x)-cos(x))^2+sin(2*x)'",
+      "subjectType": "standard_math",
+      "tags": [
+        "shortMultiplication",
+        "trigonometryAngleSum",
+        "sqrDiff",
+        "pythagoreanIdentity",
+        "simplification",
+        "^",
+        "sin",
+        "cos",
+        "trigonometry"
+      ],
+      "originalExpressionStructureString": "(+(^(+(sin(x);-(cos(x)));2);sin(*(2;x))))",
+      "goalType": "simplification",
+      "goalPattern": "+:0-1(-:1):?:?R",
+      "difficulty": 4.3,
+      "comment": "28 vlad_u"
+    },
+    {
+      "code": "global_test__TrigonometryShortMultiplication__11_Proof",
+      "version": 0,
+      "namespaceCode": "global_test",
+      "nameEn": "Level 11 Proof",
+      "nameRu": "Уровень 11 Доказательство",
+      "descriptionShortEn": "Relate to",
+      "descriptionShortRu": "Свести к",
+      "descriptionEn": "Prove '((1-cos(x))*(1+cos(x)))/sin(x) = sin(x)'",
+      "descriptionRu": "Доказать '((1-cos(x))*(1+cos(x)))/sin(x) = sin(x)'",
+      "subjectType": "standard_math",
+      "tags": [
+        "shortMultiplication",
+        "diffSqrs",
+        "pythagoreanIdentity",
+        "proof",
+        "cos",
+        "sin",
+        "trigonometry"
+      ],
+      "originalExpressionStructureString": "(/(*(+(1;-(cos(x)));+(1;cos(x)));sin(x)))",
+      "goalType": "expression",
+      "goalExpressionStructureString": "(sin(x))",
+      "difficulty": 4.0,
+      "comment": "29 vlad_u"
+    },
+    {
+      "code": "global_test__TrigonometryShortMultiplication__12_Proof",
+      "version": 0,
+      "namespaceCode": "global_test",
+      "nameEn": "Level 12 Proof",
+      "nameRu": "Уровень 12 Доказательство",
+      "descriptionShortEn": "Relate to",
+      "descriptionShortRu": "Свести к",
+      "descriptionEn": "Prove 'cos(2*x)/(cos(x)-sin(x)) = sin(x)+cos(x)'",
+      "descriptionRu": "Доказать 'cos(2*x)/(cos(x)-sin(x)) = sin(x)+cos(x)'",
+      "subjectType": "standard_math",
+      "tags": [
+        "shortMultiplication",
+        "trigonometryAngleSum",
+        "diffSqrs",
+        "proof",
+        "cos",
+        "sin",
+        "trigonometry"
+      ],
+      "originalExpressionStructureString": "(/(cos(*(2;x));+(cos(x);-(sin(x)))))",
+      "goalType": "expression",
+      "goalExpressionStructureString": "(+(sin(x);cos(x)))",
+      "difficulty": 3.3,
+      "comment": "31 vlad_u"
+    },
+    {
+      "code": "global_test__TrigonometryShortMultiplication__13_Proof",
+      "version": 0,
+      "namespaceCode": "global_test",
+      "nameEn": "Level 13 Proof",
+      "nameRu": "Уровень 13 Доказательство",
+      "descriptionShortEn": "Relate to",
+      "descriptionShortRu": "Свести к",
+      "descriptionEn": "Prove '(1-sin(2*x))/(cos(x)-sin(x)) = cos(x)-sin(x)'",
+      "descriptionRu": "Доказать '(1-sin(2*x))/(cos(x)-sin(x)) = cos(x)-sin(x)'",
+      "subjectType": "standard_math",
+      "tags": [
+        "shortMultiplication",
+        "trigonometryAngleSum",
+        "sqrDiff",
+        "pythagoreanIdentity",
+        "proof",
+        "sin",
+        "cos",
+        "trigonometry"
+      ],
+      "originalExpressionStructureString": "(/(+(1;-(sin(*(2;x))));+(cos(x);-(sin(x)))))",
+      "goalType": "expression",
+      "goalExpressionStructureString": "(+(cos(x);-(sin(x))))",
+      "difficulty": 3.4,
+      "comment": "32 vlad_u"
+    },
+    {
+      "code": "global_test__TrigonometryShortMultiplication__14_Simplification",
+      "version": 0,
+      "namespaceCode": "global_test",
+      "nameEn": "Level 14 Simplification",
+      "nameRu": "Уровень 14 Упрощение",
+      "descriptionShortEn": "Simplify",
+      "descriptionShortRu": "Упростить",
+      "descriptionEn": "Simplify '8*cos(x)^6+8*sin(x)^6-3*cos(4*x)'",
+      "descriptionRu": "Упростить '8*cos(x)^6+8*sin(x)^6-3*cos(4*x)'",
+      "subjectType": "standard_math",
+      "tags": [
+        "shortMultiplication",
+        "trigonometryAngleSum",
+        "sumCubes",
+        "pythagoreanIdentity",
+        "simplification",
+        "^",
+        "cos",
+        "sin",
+        "trigonometry"
+      ],
+      "originalExpressionStructureString": "(+(*(8;^(cos(x);6));*(8;^(sin(x);6));-(*(3;cos(*(4;x))))))",
+      "goalType": "simplification",
+      "goalPattern": "+:0-1(-:1):?:?R",
+      "difficulty": 5.3,
+      "comment": "36 vlad_u"
+    },
+    {
+      "code": "global_test__TrigonometryShortMultiplication__15_Proof",
+      "version": 0,
+      "namespaceCode": "global_test",
+      "nameEn": "Level 15 Proof",
+      "nameRu": "Уровень 15 Доказательство",
+      "descriptionShortEn": "Relate to",
+      "descriptionShortRu": "Свести к",
+      "descriptionEn": "Prove '(1+2*sin(x)*cos(x))/(sin(x)^2-cos(x)^2) = (tg(x)+1)/(tg(x)-1)'",
+      "descriptionRu": "Доказать '(1+2*sin(x)*cos(x))/(sin(x)^2-cos(x)^2) = (tg(x)+1)/(tg(x)-1)'",
+      "subjectType": "standard_math",
+      "tags": [
+        "shortMultiplication",
+        "pythagoreanIdentity",
+        "diffSqrs",
+        "sqrSum",
+        "proof",
+        "sin",
+        "cos",
+        "^",
+        "tg",
+        "trigonometry"
+      ],
+      "originalExpressionStructureString": "(/(+(1;*(2;sin(x);cos(x)));+(^(sin(x);2);-(^(cos(x);2)))))",
+      "goalType": "expression",
+      "goalExpressionStructureString": "(/(+(tg(x);1);+(tg(x);-(1))))",
+      "difficulty": 4.6,
+      "comment": "47 vlad_u"
+    },
+    {
+      "code": "global_test__TrigonometryShortMultiplication__16_Proof",
+      "version": 0,
+      "namespaceCode": "global_test",
+      "nameEn": "Level 16 Proof",
+      "nameRu": "Уровень 16 Доказательство",
+      "descriptionShortEn": "Relate to",
+      "descriptionShortRu": "Свести к",
+      "descriptionEn": "Prove 'cos(x)^2-sin(y)^2 = cos(x+y)*cos(x-y)'",
+      "descriptionRu": "Доказать 'cos(x)^2-sin(y)^2 = cos(x+y)*cos(x-y)'",
+      "subjectType": "standard_math",
+      "tags": [
+        "shortMultiplication",
+        "diffSqrs",
+        "trigonometryProduct",
+        "trigonometrySum",
+        "proof",
+        "^",
+        "cos",
+        "sin",
+        "trigonometry"
+      ],
+      "originalExpressionStructureString": "(+(^(cos(x);2);-(^(sin(y);2))))",
+      "goalType": "expression",
+      "goalExpressionStructureString": "(*(cos(+(x;y));cos(+(x;-(y)))))",
+      "difficulty": 3.7,
+      "comment": "84 vlad_u"
+    },
+    {
+      "code": "global_test__TrigonometryShortMultiplication__17_Proof",
+      "version": 0,
+      "namespaceCode": "global_test",
+      "nameEn": "Level 17 Proof",
+      "nameRu": "Уровень 17 Доказательство",
+      "descriptionShortEn": "Relate to",
+      "descriptionShortRu": "Свести к",
+      "descriptionEn": "Prove 'sin(x)^4+cos(x)^4 = (3+cos(4*x))/4'",
+      "descriptionRu": "Доказать 'sin(x)^4+cos(x)^4 = (3+cos(4*x))/4'",
+      "subjectType": "standard_math",
+      "tags": [
+        "shortMultiplication",
+        "diffSqrs",
+        "trick",
+        "trigonometryAngleSum",
+        "pythagoreanIdentity",
+        "proof",
+        "^",
+        "sin",
+        "cos",
+        "trigonometry"
+      ],
+      "originalExpressionStructureString": "(+(^(sin(x);4);^(cos(x);4)))",
+      "goalType": "expression",
+      "goalExpressionStructureString": "(/(+(3;cos(*(4;x)));4))",
+      "difficulty": 5.7,
+      "comment": "93 vlad_u"
+    },
+    {
+      "code": "global_test__TrigonometryShortMultiplication__18_Proof",
+      "version": 0,
+      "namespaceCode": "global_test",
+      "nameEn": "Level 18 Proof",
+      "nameRu": "Уровень 18 Доказательство",
+      "descriptionShortEn": "Relate to",
+      "descriptionShortRu": "Свести к",
+      "descriptionEn": "Prove 'sin(x)^6+cos(x)^6 = (5+3*cos(4*x))/8'",
+      "descriptionRu": "Доказать 'sin(x)^6+cos(x)^6 = (5+3*cos(4*x))/8'",
+      "subjectType": "standard_math",
+      "tags": [
+        "shortMultiplication",
+        "diffSqrs",
+        "sumSqrs",
+        "trick",
+        "trigonometryAngleSum",
+        "pythagoreanIdentity",
+        "proof",
+        "^",
+        "sin",
+        "cos",
+        "trigonometry"
+      ],
+      "originalExpressionStructureString": "(+(^(sin(x);6);^(cos(x);6)))",
+      "goalType": "expression",
+      "goalExpressionStructureString": "(/(+(5;*(3;cos(*(4;x))));8))",
+      "difficulty": 6.4,
+      "comment": "94 vlad_u"
+    },
+    {
+      "code": "global_test__TrigonometryShortMultiplication__19_Proof",
+      "version": 0,
+      "namespaceCode": "global_test",
+      "nameEn": "Level 19 Proof",
+      "nameRu": "Уровень 19 Доказательство",
+      "descriptionShortEn": "Relate to",
+      "descriptionShortRu": "Свести к",
+      "descriptionEn": "Prove 'cos(x)^4-sin(x)^4 = cos(2*x)'",
+      "descriptionRu": "Доказать 'cos(x)^4-sin(x)^4 = cos(2*x)'",
+      "subjectType": "standard_math",
+      "tags": [
+        "shortMultiplication",
+        "diffSqrs",
+        "trigonometryAngleSum",
+        "pythagoreanIdentity",
+        "proof",
+        "^",
+        "cos",
+        "sin",
+        "trigonometry"
+      ],
+      "originalExpressionStructureString": "(+(^(cos(x);4);-(^(sin(x);4))))",
+      "goalType": "expression",
+      "goalExpressionStructureString": "(cos(*(2;x)))",
+      "difficulty": 2.3,
+      "comment": "101 vlad_u"
+    },
+    {
+      "code": "global_test__TrigonometryShortMultiplication__20_Simplification",
+      "version": 0,
+      "namespaceCode": "global_test",
+      "nameEn": "Level 20 Simplification",
+      "nameRu": "Уровень 20 Упрощение",
+      "descriptionShortEn": "Simplify",
+      "descriptionShortRu": "Упростить",
+      "descriptionEn": "Simplify 'sin(x)^6+cos(x)^6+3*sin(x)^2*cos(x)^2'",
+      "descriptionRu": "Упростить 'sin(x)^6+cos(x)^6+3*sin(x)^2*cos(x)^2'",
+      "subjectType": "standard_math",
+      "tags": [
+        "shortMultiplication",
+        "sumCubes",
+        "sqrSum",
+        "pythagoreanIdentity",
+        "simplification",
+        "^",
+        "sin",
+        "cos",
+        "trigonometry"
+      ],
+      "originalExpressionStructureString": "(+(^(sin(x);6);^(cos(x);6);*(3;^(sin(x);2);^(cos(x);2))))",
+      "goalType": "simplification",
+      "goalPattern": "?:0:?:?N",
+      "otherGoalData": {
+        "hiddenGoalExpressions": [
+          "(1)"
+        ]
+      },
+      "difficulty": 3.4,
+      "comment": "102 vlad_u"
+    },
+    {
+      "code": "global_test__TrigonometryShortMultiplication__21_Simplification",
+      "version": 0,
+      "namespaceCode": "global_test",
+      "nameEn": "Level 21 Simplification",
+      "nameRu": "Уровень 21 Упрощение",
+      "descriptionShortEn": "Simplify",
+      "descriptionShortRu": "Упростить",
+      "descriptionEn": "Simplify '(sin(x)^4+cos(x)^4-1)/(sin(x)^6+cos(x)^6-1)'",
+      "descriptionRu": "Упростить '(sin(x)^4+cos(x)^4-1)/(sin(x)^6+cos(x)^6-1)'",
+      "subjectType": "standard_math",
+      "tags": [
+        "shortMultiplication",
+        "sumCubes",
+        "sqrSum",
+        "trick",
+        "pythagoreanIdentity",
+        "simplification",
+        "^",
+        "sin",
+        "cos",
+        "trigonometry"
+      ],
+      "originalExpressionStructureString": "(/(+(^(sin(x);4);^(cos(x);4);-(1));+(^(sin(x);6);^(cos(x);6);-(1))))",
+      "goalType": "simplification",
+      "otherGoalData": {
+        "hiddenGoalExpressions": [
+          "(/(2;3))"
+        ]
+      },
+      "difficulty": 6.7,
+      "comment": "104 vlad_u"
+    },
+    {
+      "code": "global_test__TrigonometryShortMultiplication__22_Transformation",
+      "version": 0,
+      "namespaceCode": "global_test",
+      "nameEn": "Level 22 Transformation",
+      "nameRu": "Уровень 22 Преобразование",
+      "descriptionShortEn": "Express 'tg(x)^4+ctg(x)^4' using m if 'tg(x)+ctg(x) = m' and 'm = tg(x)+ctg(x)'",
+      "descriptionShortRu": "Выразить 'tg(x)^4+ctg(x)^4' через m, если 'tg(x)+ctg(x) = m' и 'm = tg(x)+ctg(x)'",
+      "descriptionEn": "Write using m = tg(x) + ctg(x)",
+      "descriptionRu": "Запишите через m = tg(x) + ctg(x)",
+      "subjectType": "standard_math",
+      "tags": [
+        "shortMultiplication",
+        "sqrSum",
+        "trick",
+        "express",
+        "^",
+        "tg",
+        "ctg",
+        "trigonometry"
+      ],
+      "originalExpressionStructureString": "(+(^(tg(x);4);^(ctg(x);4)))",
+      "goalType": "express",
+      "goalPattern": "?:?:?:m",
+      "otherGoalData": {
+        "hiddenGoalExpressions": [
+          "(+(^(m;4);-(*(4;^(m;2)));2))"
+        ]
+      },
+      "rules": [
+        {
+          "code": "(+(tg(x);ctg(x)))__to__(m)",
+          "leftStructureString": "(+(tg(x);ctg(x)))",
+          "rightStructureString": "(m)",
+          "priority": 2,
+          "isExtending": false,
+          "matchJumbledAndNested": false,
+          "simpleAdditional": false,
+          "basedOnTaskContext": true,
+          "normalizationType": "ORIGINAL"
+        },
+        {
+          "code": "(m)__to__(+(tg(x);ctg(x)))",
+          "leftStructureString": "(m)",
+          "rightStructureString": "(+(tg(x);ctg(x)))",
+          "priority": 2,
+          "isExtending": false,
+          "matchJumbledAndNested": false,
+          "simpleAdditional": false,
+          "basedOnTaskContext": true,
+          "normalizationType": "ORIGINAL"
+        }
+      ],
+      "difficulty": 7.3,
+      "comment": "103 vlad_u"
+    },
+    {
+      "code": "global_test__TrigonometryShortMultiplication__23_Proof",
+      "version": 0,
+      "namespaceCode": "global_test",
+      "nameEn": "Level 23 Proof",
+      "nameRu": "Уровень 23 Доказательство",
+      "descriptionShortEn": "Relate to",
+      "descriptionShortRu": "Свести к",
+      "descriptionEn": "Prove '(4*cos(x))/(ctg(x/2)^2-tg(x/2)^2) = sin(x)^2'",
+      "descriptionRu": "Доказать '(4*cos(x))/(ctg(x/2)^2-tg(x/2)^2) = sin(x)^2'",
+      "subjectType": "standard_math",
+      "tags": [
+        "shortMultiplication",
+        "diffSqrs",
+        "trigonometryAngleSum",
+        "pythagoreanIdentity",
+        "proof",
+        "cos",
+        "^",
+        "ctg",
+        "tg",
+        "sin",
+        "trigonometry"
+      ],
+      "originalExpressionStructureString": "(/(*(4;cos(x));+(^(ctg(/(x;2));2);-(^(tg(/(x;2));2)))))",
+      "goalType": "expression",
+      "goalExpressionStructureString": "(^(sin(x);2))",
+      "difficulty": 3.5,
+      "comment": "59 vlad_u"
     }
   ]
 }
