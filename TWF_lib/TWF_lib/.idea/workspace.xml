@@ -4,15 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="18d24350-206f-4926-9654-79feb939a8cc" name="Default Changelist" comment="Ok, abort mission">
-      <change afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="18d24350-206f-4926-9654-79feb939a8cc" name="Default Changelist" comment="Added node.js server">
+      <change afterPath="$PROJECT_DIR$/dist/fonts/u2000-subset.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dist/fonts/u2000-subset.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dist/fonts/u2000.woff" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/bundle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/express/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/express/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Procfile" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PrintExpr/PrintExpr.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/PrintExpr/PrintExpr.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,7 +135,8 @@
       <workItem from="1629892112968" duration="10386000" />
       <workItem from="1630048944174" duration="11118000" />
       <workItem from="1630687876086" duration="7216000" />
-      <workItem from="1630773875031" duration="2055000" />
+      <workItem from="1630773875031" duration="2852000" />
+      <workItem from="1630777018112" duration="317000" />
     </task>
     <task id="LOCAL-00001" summary="Upgraded printExpr function">
       <created>1630688849103</created>
@@ -174,7 +173,21 @@
       <option name="project" value="LOCAL" />
       <updated>1630698649019</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Added node.js server">
+      <created>1630776023265</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1630776023265</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Added node.js server">
+      <created>1630776045924</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1630776045924</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -198,6 +211,7 @@
     <MESSAGE value="Forgot to upload fonts" />
     <MESSAGE value="Heroku deployment preparations" />
     <MESSAGE value="Ok, abort mission" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ok, abort mission" />
+    <MESSAGE value="Added node.js server" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added node.js server" />
   </component>
 </project>

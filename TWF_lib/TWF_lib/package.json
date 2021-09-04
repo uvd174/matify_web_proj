@@ -2,7 +2,7 @@
   "name": "ts-webpack_test",
   "version": "1.0.0",
   "description": "ts-webpack project",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "dev": "webpack --mode development --devtool inline-source-map",
     "dev:watch": "webpack --mode development --devtool inline-source-map --watch",
