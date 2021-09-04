@@ -5,12 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="18d24350-206f-4926-9654-79feb939a8cc" name="Default Changelist" comment="Added node.js server">
-      <change afterPath="$PROJECT_DIR$/dist/fonts/u2000-subset.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/fonts/u2000-subset.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/fonts/u2000.woff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Procfile" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Procfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,6 +135,7 @@
       <workItem from="1630687876086" duration="7216000" />
       <workItem from="1630773875031" duration="2852000" />
       <workItem from="1630777018112" duration="317000" />
+      <workItem from="1630784367610" duration="430000" />
     </task>
     <task id="LOCAL-00001" summary="Upgraded printExpr function">
       <created>1630688849103</created>

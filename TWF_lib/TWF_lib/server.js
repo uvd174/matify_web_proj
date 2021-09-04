@@ -1,7 +1,13 @@
 const express = require('express');
 const path = require('path');
 const app = express();
-const port = 3500
+
+let port = process.env.PORT;
+if (port == null || port === "") {
+  port = 3500;
+}
+
+app.listen(port);
 
 app.use(express.static('./dist'));
 app.get('*', (req, res) => {
