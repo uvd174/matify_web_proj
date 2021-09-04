@@ -147,7 +147,7 @@ function printTree(expr: Expr/*, widthLimit: number, heightLimit: number*/) {
   //requestAnimationFrame(() => recPrintTree(root, expr)); TODO: maybe this can be used to improve performance
   recPrintTree(root, expr);
 
-  //leftTopAnchor.remove(); // TODO: turn it on for prod
+  leftTopAnchor.remove(); // TODO: turn it on for prod
 
   function interactiveText(value: string, node: ExprNode, expr: Expr) {
     let txt = expr.svg.text(value).font({
@@ -157,7 +157,7 @@ function printTree(expr: Expr/*, widthLimit: number, heightLimit: number*/) {
     });
     txt.css({cursor: 'pointer'});
     // @ts-ignore
-    //txt.css('user-select', 'none'); TODO: turn it on for prod
+    txt.css('user-select', 'none'); // TODO: turn it on for prod
     txt.on('mousedown', () => onButtonDown(node, expr));
     txt.on('mouseup mouseover', () => onButtonOver(node));
     txt.on('mouseout', () => onButtonOut(node));
